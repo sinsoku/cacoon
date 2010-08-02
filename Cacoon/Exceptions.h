@@ -14,5 +14,4 @@ public:
 	CacoonExceptionBase();
 };
 
-
 //#define CacoonException( message ) CacoonExceptionBase( message )

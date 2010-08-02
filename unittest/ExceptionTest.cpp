@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../Cacoon/Exceptions.h"
+#include "Exceptions.h"
 
 #pragma comment( lib, "gtestd.lib" )
 #pragma comment( lib, "gtest_maind.lib" )

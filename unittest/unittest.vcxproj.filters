@@ -5,13 +5,19 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="リソース ファイル">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="参照 ファイル">
+      <UniqueIdentifier>{770c5a84-a803-43e0-9807-33d0aa84acae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="参照 ファイル\ソース ファイル">
+      <UniqueIdentifier>{1e6729ca-c116-4794-8216-560bc152afa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="参照 ファイル\ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,7 +28,7 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\Cacoon\Exceptions.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>参照 ファイル\ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -30,7 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Cacoon\Exceptions.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>参照 ファイル\ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

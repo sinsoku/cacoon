@@ -4,12 +4,14 @@
 #pragma comment( lib, "gtestd.lib" )
 #pragma comment( lib, "gtest_maind.lib" )
 
-TEST(GTestSample, Assert) {
+// GoogleTest確認用のテストケース
+TEST(GTestSample, GTest) {
 	EXPECT_EQ(1, 1);
 	EXPECT_TRUE(true);
 	EXPECT_FALSE(false);
 }
 
+// boostの確認用のテストケース
 TEST(GTestSample, BoostTest) {
 	int evenarray[] = {2,4,6,8,10};
 

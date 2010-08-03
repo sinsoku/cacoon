@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cacoon", "Cacoon\Cacoon.vcxproj", "{E9850AA3-6376-461C-942F-EE466D9BB4A6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unittest", "unittest\unittest.vcxproj", "{0B224660-A503-4FFD-80AC-35C29CB76B50}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E9850AA3-6376-461C-942F-EE466D9BB4A6} = {E9850AA3-6376-461C-942F-EE466D9BB4A6}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

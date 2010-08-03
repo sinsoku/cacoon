@@ -12,7 +12,7 @@ public:
 	// message  : エラーの内容を表す文字列
 	// __file__ : エラーの発生したソースファイル
 	// __line__ : エラーの発生した行
-	CacoonException( const char * message, const char * __file__, int line );
+	CacoonException( const char * message, const char * __file__, int __line__ );
 
 	// 例外の内容を string で取得する
 	std::string Info() const;

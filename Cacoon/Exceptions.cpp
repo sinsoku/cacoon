@@ -3,11 +3,11 @@
 
 #include <sstream>
 
-CacoonException::CacoonException( const char * message, const char * __file__, int line )
+CacoonException::CacoonException( const char * message, const char * __file__, int __line__ )
 	: std::exception( message )
 {
 	std::ostringstream oss;
-	oss << message << std::endl << __file__ << " 内：" << line << " 行目";
+	oss << message << std::endl << __file__ << " 内：" << __line__ << " 行目";
 	this->info = oss.str();
 }
 

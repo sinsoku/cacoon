@@ -1,6 +1,5 @@
-#include <gtest/gtest.h>
+#include "stdafx.h"
 #include "Exceptions.h"
-#include <boost/lexical_cast.hpp>
 
 TEST( ExceptionText, ThrowingTest )
 {

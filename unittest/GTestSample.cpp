@@ -1,8 +1,4 @@
-#include <gtest/gtest.h>
-#include <boost/foreach.hpp>
-
-#pragma comment( lib, "gtestd.lib" )
-#pragma comment( lib, "gtest_maind.lib" )
+#include "stdafx.h"
 
 // GoogleTest確認用のテストケース
 TEST(GTestSample, GTest) {

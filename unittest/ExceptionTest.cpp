@@ -2,9 +2,6 @@
 #include "Exceptions.h"
 #include <boost/lexical_cast.hpp>
 
-#pragma comment( lib, "gtestd.lib" )
-#pragma comment( lib, "gtest_maind.lib" )
-
 TEST( ExceptionText, ThrowingTest )
 {
 	bool thrown = false;

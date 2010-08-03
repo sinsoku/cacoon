@@ -12,13 +12,6 @@
     <Filter Include="参照 ファイル">
       <UniqueIdentifier>{770c5a84-a803-43e0-9807-33d0aa84acae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="参照 ファイル\ソース ファイル">
-      <UniqueIdentifier>{1e6729ca-c116-4794-8216-560bc152afa4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="参照 ファイル\ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GTestSample.cpp">
@@ -28,15 +21,10 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\Cacoon\Exceptions.cpp">
-      <Filter>参照 ファイル\ソース ファイル</Filter>
+      <Filter>参照 ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Cacoon\Exceptions.h">
-      <Filter>参照 ファイル\ヘッダー ファイル</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

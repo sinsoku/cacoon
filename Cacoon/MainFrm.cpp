@@ -11,6 +11,8 @@
 #define new DEBUG_NEW
 #endif
 
+#define WM_USER_NTFYICON (WM_USER+100) // 100に特に意味はない。
+
 // MainFrame
 
 IMPLEMENT_DYNCREATE(MainFrame, CFrameWndEx)
@@ -51,6 +53,16 @@ int MainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CFrameWndEx::OnCreate(lpCreateStruct) == -1)
 		return -1;
+
+	// タスクトレイにアイコンを表示
+	m_stNtfyIcon.cbSize = sizeof( NOTIFYICONDATA );	//構造体のサイズです。
+	m_stNtfyIcon.uID = 0;	//アイコンの識別ナンバーです。
+	m_stNtfyIcon.hWnd = m_hWnd;	//メッセージを送らせるウィンドウのハンドルです。
+	m_stNtfyIcon.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP;	//各種設定です。
+	m_stNtfyIcon.hIcon = AfxGetApp()->LoadIconW( IDR_MAINFRAME );	//アプリケーションのアイコンです。
+	m_stNtfyIcon.uCallbackMessage = WM_USER_NTFYICON;	//送ってもらうメッセージです。
+	lstrcpy( m_stNtfyIcon.szTip, _T( "Cacoon" ) );	//チップの文字列です。
+	::Shell_NotifyIconW( NIM_ADD, &m_stNtfyIcon );	//タスクトレイに表示します。
 
 	BOOL bNameValid;
 	// 固定値に基づいてビジュアル マネージャーと visual スタイルを設定します
@@ -307,3 +319,41 @@ BOOL MainFrame::LoadFrame(UINT nIDResource, DWORD dwDefaultStyle, CWnd* pParentW
 	return TRUE;
 }
 
+void MainFrame::OnDestroy(void)
+{
+	::Shell_NotifyIconW( NIM_DELETE, &m_stNtfyIcon ); // タスクトレイのアイコンを削除
+	CFrameWndEx::OnDestroy();
+}
+
+
+LRESULT MainFrame::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch( message )
+	{
+	case WM_USER_NTFYICON:	//アイコンからのメッセージ。
+		POINT point;
+		::GetCursorPos(&point);
+
+		if( lParam == WM_LBUTTONDOWN ) {
+			// 左クリックの処理
+			;
+		} else if( lParam == WM_RBUTTONDOWN ) {
+			// 右クリックの処理
+			SetForegroundWindow();
+
+			// タスクトレイのポップアップメニューの構築
+			CMenu tasktraymenu;
+			tasktraymenu.CreatePopupMenu();
+			tasktraymenu.AppendMenuW( MF_STRING, 0, L"設定");
+			tasktraymenu.AppendMenuW( MF_SEPARATOR, 0);
+			tasktraymenu.AppendMenuW( MF_STRING, 1, L"バージョン情報");
+			tasktraymenu.AppendMenuW( MF_STRING, 2, L"終了");
+
+			tasktraymenu.TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this);
+			PostMessage(WM_NULL);
+			break;
+		}
+	}	
+
+	return CFrameWndEx::WindowProc(message, wParam, lParam);
+}

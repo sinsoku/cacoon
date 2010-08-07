@@ -6,7 +6,9 @@
 
 class MainFrame : public CFrameWndEx
 {
-	
+private:
+	NOTIFYICONDATA m_stNtfyIcon;
+
 protected: // ÉVÉäÉAÉãâªÇ©ÇÁÇÃÇ›çÏê¨ÇµÇ‹Ç∑ÅB
 	MainFrame();
 	DECLARE_DYNCREATE(MainFrame)
@@ -45,6 +47,9 @@ protected:
 	afx_msg void OnUpdateApplicationLook(CCmdUI* pCmdUI);
 	DECLARE_MESSAGE_MAP()
 
+public:
+	void OnDestroy(void);
+	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 };
 
 

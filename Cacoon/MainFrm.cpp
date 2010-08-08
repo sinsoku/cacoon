@@ -28,6 +28,9 @@ BEGIN_MESSAGE_MAP(MainFrame, CFrameWndEx)
 	ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &MainFrame::OnApplicationLook)
 	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &MainFrame::OnUpdateApplicationLook)
 	ON_WM_WINDOWPOSCHANGING()
+	ON_COMMAND(ID_MENUITEM_1, OnCommandMenu_1)
+	ON_COMMAND(ID_MENUITEM_2, OnCommandMenu_2)
+	ON_COMMAND(ID_MENUITEM_3, OnCommandMenu_3)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -344,11 +347,15 @@ LRESULT MainFrame::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 
 			// タスクトレイのポップアップメニューの構築
 			CMenu tasktraymenu;
+			tasktraymenu.EnableMenuItem( ID_MENUITEM_1, MF_ENABLED );
+			tasktraymenu.EnableMenuItem( ID_MENUITEM_2, MF_ENABLED );
+			tasktraymenu.EnableMenuItem( ID_MENUITEM_3, MF_ENABLED );
+
 			tasktraymenu.CreatePopupMenu();
-			tasktraymenu.AppendMenuW( MF_STRING, 0, L"設定");
+			tasktraymenu.AppendMenuW( MF_STRING, ID_MENUITEM_1, L"設定");
 			tasktraymenu.AppendMenuW( MF_SEPARATOR, 0);
-			tasktraymenu.AppendMenuW( MF_STRING, 1, L"バージョン情報");
-			tasktraymenu.AppendMenuW( MF_STRING, 2, L"終了");
+			tasktraymenu.AppendMenuW( MF_STRING, ID_MENUITEM_2, L"バージョン情報");
+			tasktraymenu.AppendMenuW( MF_STRING, ID_MENUITEM_3, L"終了");
 
 			tasktraymenu.TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this);
 			PostMessage(WM_NULL);
@@ -362,4 +369,16 @@ LRESULT MainFrame::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 void MainFrame::OnWindowPosChanging(WINDOWPOS * lpwndpos)
 {
     lpwndpos->flags &= ~SWP_SHOWWINDOW;
+}
+
+void MainFrame::OnCommandMenu_1() {
+    ::MessageBox( NULL, L"設定が押されました", L"設定", MB_OK );
+}
+
+void MainFrame::OnCommandMenu_2() {
+    ::MessageBox( NULL, L"バージョン情報が押されました", L"バージョン情報", MB_OK );
+}
+
+void MainFrame::OnCommandMenu_3() {
+	AfxGetMainWnd()->SendMessage(WM_CLOSE);
 }

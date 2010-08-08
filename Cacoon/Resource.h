@@ -28,6 +28,10 @@
 #define ID_VIEW_APPLOOK_OFF_2007_AQUA	218
 #define ID_VIEW_APPLOOK_WINDOWS_7	219
 #define IDS_EDIT_MENU				306
+#define ID_MENUITEM_1 401
+#define ID_MENUITEM_2 402
+#define ID_MENUITEM_3 403
+
 
 // 新しいオブジェクトの次の既定値
 //

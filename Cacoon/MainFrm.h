@@ -46,6 +46,9 @@ protected:
 	afx_msg void OnApplicationLook(UINT id);
 	afx_msg void OnUpdateApplicationLook(CCmdUI* pCmdUI);
 	afx_msg void OnWindowPosChanging(WINDOWPOS * lpwndpos);
+	afx_msg void OnCommandMenu_1();
+	afx_msg void OnCommandMenu_2();
+	afx_msg void OnCommandMenu_3();
 	DECLARE_MESSAGE_MAP()
 
 public:

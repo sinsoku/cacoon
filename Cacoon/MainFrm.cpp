@@ -27,6 +27,7 @@ BEGIN_MESSAGE_MAP(MainFrame, CFrameWndEx)
 	ON_REGISTERED_MESSAGE(AFX_WM_CREATETOOLBAR, &MainFrame::OnToolbarCreateNew)
 	ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &MainFrame::OnApplicationLook)
 	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &MainFrame::OnUpdateApplicationLook)
+	ON_WM_WINDOWPOSCHANGING()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -356,4 +357,9 @@ LRESULT MainFrame::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 	}	
 
 	return CFrameWndEx::WindowProc(message, wParam, lParam);
+}
+
+void MainFrame::OnWindowPosChanging(WINDOWPOS * lpwndpos)
+{
+    lpwndpos->flags &= ~SWP_SHOWWINDOW;
 }

@@ -68,6 +68,20 @@ int MainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	lstrcpy( m_stNtfyIcon.szTip, _T( "Cacoon" ) );	//チップの文字列です。
 	::Shell_NotifyIconW( NIM_ADD, &m_stNtfyIcon );	//タスクトレイに表示します。
 
+	// ポップアップメニューの構築
+	m_TaskTrayMenu.CreatePopupMenu();
+
+	// ポップアップメニューのイベント設定
+	m_TaskTrayMenu.EnableMenuItem( ID_MENUITEM_1, MF_ENABLED );
+	m_TaskTrayMenu.EnableMenuItem( ID_MENUITEM_2, MF_ENABLED );
+	m_TaskTrayMenu.EnableMenuItem( ID_MENUITEM_3, MF_ENABLED );
+
+	// ポップアップメニューのメニュー項目
+	m_TaskTrayMenu.AppendMenuW( MF_STRING, ID_MENUITEM_1, L"設定");
+	m_TaskTrayMenu.AppendMenuW( MF_SEPARATOR, 0);
+	m_TaskTrayMenu.AppendMenuW( MF_STRING, ID_MENUITEM_2, L"バージョン情報");
+	m_TaskTrayMenu.AppendMenuW( MF_STRING, ID_MENUITEM_3, L"終了");
+
 	BOOL bNameValid;
 	// 固定値に基づいてビジュアル マネージャーと visual スタイルを設定します
 	OnApplicationLook(theApp.m_nAppLook);
@@ -345,19 +359,7 @@ LRESULT MainFrame::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 			// 右クリックの処理
 			SetForegroundWindow();
 
-			// タスクトレイのポップアップメニューの構築
-			CMenu tasktraymenu;
-			tasktraymenu.EnableMenuItem( ID_MENUITEM_1, MF_ENABLED );
-			tasktraymenu.EnableMenuItem( ID_MENUITEM_2, MF_ENABLED );
-			tasktraymenu.EnableMenuItem( ID_MENUITEM_3, MF_ENABLED );
-
-			tasktraymenu.CreatePopupMenu();
-			tasktraymenu.AppendMenuW( MF_STRING, ID_MENUITEM_1, L"設定");
-			tasktraymenu.AppendMenuW( MF_SEPARATOR, 0);
-			tasktraymenu.AppendMenuW( MF_STRING, ID_MENUITEM_2, L"バージョン情報");
-			tasktraymenu.AppendMenuW( MF_STRING, ID_MENUITEM_3, L"終了");
-
-			tasktraymenu.TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this);
+			m_TaskTrayMenu.TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this);
 			PostMessage(WM_NULL);
 			break;
 		}

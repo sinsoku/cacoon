@@ -7,6 +7,7 @@
 class MainFrame : public CFrameWndEx
 {
 private:
+	CMenu m_TaskTrayMenu;
 	NOTIFYICONDATA m_stNtfyIcon;
 
 protected: // ƒVƒŠƒAƒ‹‰»‚©‚ç‚Ì‚İì¬‚µ‚Ü‚·B

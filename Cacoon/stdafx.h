@@ -58,3 +58,11 @@
 // 以下、ユーザが追加したヘッダ
 #include <stdexcept>
 #include <string>
+#include <sstream>
+
+#include <boost/utility.hpp>
+#include <boost/shared_ptr.hpp>
+
+#include <WinSock2.h>
+
+#include "Exceptions.h"

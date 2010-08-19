@@ -26,6 +26,30 @@
     <ClCompile Include="..\Cacoon\Exceptions.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="HttpTest.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\HttpClient.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\Connection.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\Response.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\Method.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\HttpConnection.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\HttpsConnection.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\MockConnection.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>

@@ -51,6 +51,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\lib\gtest-1.5.0\include;..\lib\boost_1_43_0;..\Cacoon</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeaderFile>StdAfx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -79,9 +80,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cacoon\Connection.cpp" />
     <ClCompile Include="..\Cacoon\Exceptions.cpp" />
+    <ClCompile Include="..\Cacoon\HttpClient.cpp" />
+    <ClCompile Include="..\Cacoon\HttpConnection.cpp" />
+    <ClCompile Include="..\Cacoon\HttpsConnection.cpp" />
+    <ClCompile Include="..\Cacoon\Method.cpp" />
+    <ClCompile Include="..\Cacoon\MockConnection.cpp" />
+    <ClCompile Include="..\Cacoon\Response.cpp" />
     <ClCompile Include="ExceptionTest.cpp" />
     <ClCompile Include="GTestSample.cpp" />
+    <ClCompile Include="HttpTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>

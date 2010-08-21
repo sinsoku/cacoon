@@ -59,6 +59,7 @@
 #include <stdexcept>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 #include <boost/utility.hpp>
 #include <boost/shared_ptr.hpp>

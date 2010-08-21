@@ -5,12 +5,12 @@
 #include "../Cacoon/stdafx.h"
 
 #include <gtest/gtest.h>
-
+#include <tinyxml.h>
 #include <boost/foreach.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/utility.hpp>
 
 #pragma comment( lib, "gtestd.lib" )
 #pragma comment( lib, "gtest_maind.lib" )
-
+#pragma comment( lib, "tinyxmld.lib" )
 #pragma comment( lib, "ws2_32.lib" )

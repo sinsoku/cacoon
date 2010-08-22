@@ -10,3 +10,13 @@ TEST(CacooApi, users)
 	EXPECT_STREQ("Yoko", user.nickname.c_str());
 	EXPECT_STREQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl.c_str());
 }
+
+TEST(CacooApi, account)
+{
+	CacooApi api;
+	CacooUser user = api.account();
+
+	EXPECT_STREQ("yoko", user.name.c_str());
+	EXPECT_STREQ("Yoko", user.nickname.c_str());
+	EXPECT_STREQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl.c_str());
+}

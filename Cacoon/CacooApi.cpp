@@ -46,3 +46,8 @@ CacooUser CacooApi::users(const std::string &name)
 
 	return cu;
 }
+
+CacooUser CacooApi::account()
+{
+	return users("yoko");
+}

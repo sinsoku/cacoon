@@ -13,5 +13,6 @@ public:
 	CacooApi(void);
 	~CacooApi(void);
 	CacooUser users(const std::string &name);
+	CacooUser account(void);
 };
 

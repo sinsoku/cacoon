@@ -53,13 +53,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\lib\boost_1_43_0;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\lib\boost_1_43_0;..\lib\tinyxml_2_6_1;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\tinyxml_2_6_1\Debug;</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -109,6 +108,7 @@
     <None Include="UserImages.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CacooApi.h" />
     <ClInclude Include="Cacoon.h" />
     <ClInclude Include="CacoonDoc.h" />
     <ClInclude Include="CacoonView.h" />
@@ -127,6 +127,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CacooApi.cpp" />
     <ClCompile Include="Cacoon.cpp" />
     <ClCompile Include="CacoonDoc.cpp" />
     <ClCompile Include="CacoonView.cpp" />

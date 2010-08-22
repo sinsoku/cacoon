@@ -80,6 +80,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cacoon\CacooApi.cpp" />
     <ClCompile Include="..\Cacoon\Connection.cpp" />
     <ClCompile Include="..\Cacoon\Exceptions.cpp" />
     <ClCompile Include="..\Cacoon\HttpClient.cpp" />
@@ -88,6 +89,7 @@
     <ClCompile Include="..\Cacoon\Method.cpp" />
     <ClCompile Include="..\Cacoon\MockConnection.cpp" />
     <ClCompile Include="..\Cacoon\Response.cpp" />
+    <ClCompile Include="CacooApiTest.cpp" />
     <ClCompile Include="ExceptionTest.cpp" />
     <ClCompile Include="GTestSample.cpp" />
     <ClCompile Include="HttpTest.cpp" />

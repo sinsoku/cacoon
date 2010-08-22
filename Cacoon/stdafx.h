@@ -62,7 +62,11 @@
 #include <fstream>
 
 #include <tinyxml.h>
+#ifdef _DEBUG
 #pragma comment( lib, "tinyxmld.lib" )
+#else
+#pragma comment( lib, "tinyxml.lib" )
+#endif
 #include <boost/utility.hpp>
 #include <boost/shared_ptr.hpp>
 

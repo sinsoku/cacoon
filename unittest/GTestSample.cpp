@@ -17,7 +17,7 @@ TEST(GTestSample, BoostTest) {
 }
 
 // TinyXmlの確認用のテストケース
-TEST(xmlparse, test) {
+TEST(GTestSample, TinyXmlTest) {
 	std::string xmltmpfile = "xmldata.xml";
 	char xmldata[] =
 		"<?xml version=\"1.0\" ?>\n"

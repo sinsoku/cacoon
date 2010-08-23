@@ -13,7 +13,14 @@ MockServer::~MockServer(void)
 
 std::string MockServer::get(const std::string& url)
 {
-	return MockServer::createUsers();
+	std::string baseUrl = "http://cacoo.com/api/v1/";
+
+	if (baseUrl + "users/yoko.xml" == url) {
+		return MockServer::createUsers();
+	} else if (baseUrl + "account.xml" == url) {
+		return MockServer::createAccount();
+	}
+	return "";
 }
 
 std::string MockServer::createDiagrams()
@@ -189,7 +196,7 @@ std::string MockServer::createAccount()
 		"<account>"
 		"  <name>yoko</name>"
 		"  <nickname>Yoko</nickname>"
-		"  <imageUrl>https://cacoo.com/account/yoshizawa/image/32x32</imageUrl>"
+		"  <imageUrl>https://cacoo.com/account/yoko/image/32x32</imageUrl>"
 		"</account>";
 
 	return resXmlData;

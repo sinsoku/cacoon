@@ -14,12 +14,14 @@ CacooUser CacooApi::users(const std::string& name)
 {
 	std::string url = "http://cacoo.com/api/v1/users/" + name + ".xml";
 	std::string resXmlData = cacooServer->get(url);
-	return parseUser(resXmlData);
+	return CacooApi::parseUser(resXmlData);
 }
 
 CacooUser CacooApi::account()
 {
-	return users("yoko");
+	std::string url = "http://cacoo.com/api/v1/account.xml";
+	std::string resXmlData = cacooServer->get(url);
+	return CacooApi::parseUser(resXmlData);
 }
 
 void CacooApi::setServer(CacooServer* server)

@@ -2,6 +2,10 @@
 #include "CacooApi.h"
 #include "MockServer.h"
 
+TEST(CacooApi, paserUser)
+{
+}
+
 TEST(CacooApi, users) 
 {
 	MockServer* mock = new MockServer();

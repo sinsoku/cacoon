@@ -14,32 +14,7 @@ CacooUser CacooApi::users(const std::string& name)
 {
 	std::string url = "http://cacoo.com/api/v1/users/" + name + ".xml";
 	std::string resXmlData = cacooServer->get(url);
-	CacooUser cu;
-
-	// テンプファイルに書込み
-	char xmltmpfile[] = "xmltmp.xml";
-	std::ofstream ofs(xmltmpfile);
-	ofs << resXmlData;
-	ofs.close();
-
-	// TinyXmlで読込み
-	TiXmlDocument doc(xmltmpfile);
-	doc.LoadFile();
-
-	TiXmlElement* root = doc.RootElement();
-	TiXmlElement* e = root->FirstChildElement();
-	cu.name = e->GetText();
-
-	TiXmlElement* e1 = e->NextSiblingElement();
-	cu.nickname = e1->GetText();
-
-	TiXmlElement* e2 = e1->NextSiblingElement();
-	cu.imageUrl = e2->GetText();
-
-	// テンプファイルの削除
-	remove(xmltmpfile);
-
-	return cu;
+	return parseUser(resXmlData);
 }
 
 CacooUser CacooApi::account()
@@ -50,4 +25,33 @@ CacooUser CacooApi::account()
 void CacooApi::setServer(CacooServer* server)
 {
 	cacooServer = server;
+}
+
+CacooUser CacooApi::parseUser(const std::string& xmlData)
+{
+	// テンプファイルに書込み
+	char xmltmpfile[] = "xmltmp.xml";
+	std::ofstream ofs(xmltmpfile);
+	ofs << xmlData;
+	ofs.close();
+
+	// TinyXmlで読込み
+	TiXmlDocument doc(xmltmpfile);
+	doc.LoadFile();
+
+	// テンプファイルの削除
+	remove(xmltmpfile);
+
+	CacooUser cu;
+	TiXmlElement* root = doc.RootElement();
+	TiXmlElement* e = root->FirstChildElement();
+	cu.name = e->GetText();
+
+	TiXmlElement* e1 = e->NextSiblingElement();
+	cu.nickname = e1->GetText();
+
+	TiXmlElement* e2 = e1->NextSiblingElement();
+	cu.imageUrl = e2->GetText();
+
+	return cu;
 }

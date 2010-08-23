@@ -19,5 +19,6 @@ public:
 	~CacooApi(void);
 	CacooUser users(const std::string& name);
 	CacooUser account(void);
+	CacooUser parseUser(const std::string& xmlData);
 	void setServer(CacooServer* server);
 };

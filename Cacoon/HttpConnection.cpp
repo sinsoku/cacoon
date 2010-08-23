@@ -61,7 +61,7 @@ HttpConnection::~HttpConnection()
 Response HttpConnection::Request( const std::string & method, const std::string & url, const std::string & header )
 {
 	std::ostringstream ossReq( std::ios::binary );
-	ossReq << method << " " << url << " HTTP/1.1\r\nHost: " << this->host << "\r\nConnection: close\r\n\r\n" << '\0';
+	ossReq << method << " " << url << " HTTP/1.1\r\nHost: " << this->host << "\r\n\r\n" << '\0';
 
 	// HTTP リクエスト送信
 	int n = send( this->sock, ossReq.str().c_str(), ossReq.str().length(), 0 );
@@ -76,7 +76,7 @@ Response HttpConnection::Request( const std::string & method, const std::string 
 	char buf[BufferSize];
 
 	// サーバからの HTTP メッセージ受信
-	while( n > 0 )
+	while( n == BufferSize	 )
 	{
 		memset( buf, 0, BufferSize );
 		n = recv( this->sock, buf, BufferSize, 0 );

@@ -59,6 +59,9 @@
     <ClCompile Include="..\Cacoon\CacooApi.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cacoon\CacooServer.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

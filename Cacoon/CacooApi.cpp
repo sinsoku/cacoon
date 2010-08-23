@@ -51,3 +51,8 @@ CacooUser CacooApi::account()
 {
 	return users("yoko");
 }
+
+void CacooApi::setServer(const CacooServer &server)
+{
+	cacooServer = server;
+}

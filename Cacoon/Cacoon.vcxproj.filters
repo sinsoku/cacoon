@@ -87,6 +87,9 @@
     <ClInclude Include="CacooApi.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="CacooServer.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cacoon.cpp">
@@ -129,6 +132,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="CacooApi.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CacooServer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,4 +1,6 @@
 #pragma once
+#include "CacooServer.h"
+
 class CacooUser
 {
 public:
@@ -9,10 +11,14 @@ public:
 
 class CacooApi
 {
+private:
+	CacooServer cacooServer;
+
 public:
 	CacooApi(void);
 	~CacooApi(void);
 	CacooUser users(const std::string &name);
 	CacooUser account(void);
+	void setServer(const CacooServer &server);
 };
 

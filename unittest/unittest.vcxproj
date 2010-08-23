@@ -81,6 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Cacoon\CacooApi.cpp" />
+    <ClCompile Include="..\Cacoon\CacooServer.cpp" />
     <ClCompile Include="..\Cacoon\Connection.cpp" />
     <ClCompile Include="..\Cacoon\Exceptions.cpp" />
     <ClCompile Include="..\Cacoon\HttpClient.cpp" />

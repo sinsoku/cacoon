@@ -94,6 +94,7 @@
     <ClCompile Include="ExceptionTest.cpp" />
     <ClCompile Include="GTestSample.cpp" />
     <ClCompile Include="HttpTest.cpp" />
+    <ClCompile Include="MockServer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -102,6 +103,7 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MockServer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -12,13 +12,12 @@ public:
 class CacooApi
 {
 private:
-	CacooServer cacooServer;
+	CacooServer* cacooServer;
 
 public:
 	CacooApi(void);
 	~CacooApi(void);
-	CacooUser users(const std::string &name);
+	CacooUser users(const std::string& name);
 	CacooUser account(void);
-	void setServer(const CacooServer &server);
+	void setServer(CacooServer* server);
 };
-

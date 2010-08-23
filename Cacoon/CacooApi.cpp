@@ -10,15 +10,10 @@ CacooApi::~CacooApi(void)
 {
 }
 
-CacooUser CacooApi::users(const std::string &name)
+CacooUser CacooApi::users(const std::string& name)
 {
-	char resXmlData[] =
-		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-		"<user>"
-		"<name>yoko</name>"
-		"<nickname>Yoko</nickname>"
-		"<imageUrl>https://cacoo.com/account/yoko/image/32x32</imageUrl>"
-		"</user>";
+	std::string url = "http://cacoo.com/api/v1/users/" + name + ".xml";
+	std::string resXmlData = cacooServer->get(url);
 	CacooUser cu;
 
 	// テンプファイルに書込み
@@ -52,7 +47,7 @@ CacooUser CacooApi::account()
 	return users("yoko");
 }
 
-void CacooApi::setServer(const CacooServer &server)
+void CacooApi::setServer(CacooServer* server)
 {
 	cacooServer = server;
 }

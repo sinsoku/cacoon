@@ -76,7 +76,7 @@ Response HttpConnection::Request( const std::string & method, const std::string 
 	char buf[BufferSize];
 
 	// サーバからの HTTP メッセージ受信
-	while( n == BufferSize	 )
+	while( n > 0 )
 	{
 		memset( buf, 0, BufferSize );
 		n = recv( this->sock, buf, BufferSize, 0 );

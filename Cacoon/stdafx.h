@@ -60,9 +60,11 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <map>
 
 #include <boost/utility.hpp>
 #include <boost/shared_ptr.hpp>
+#include <boost/tokenizer.hpp>
 
 #include <WinSock2.h>
 

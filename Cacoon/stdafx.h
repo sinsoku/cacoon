@@ -58,6 +58,7 @@
 // 以下、ユーザが追加したヘッダ
 #include <stdexcept>
 #include <string>
+#include <vector>
 #include <sstream>
 #include <fstream>
 

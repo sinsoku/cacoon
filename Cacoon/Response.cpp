@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Response.h"
-
+#include "HeaderMap.h"
 // コンストラクタ
 Response::Response( const std::string & rawResponse )
 {
@@ -15,11 +15,17 @@ Response::Response( const std::string & rawResponse )
 
 	this->statusCode = atoi( statusCodeAsString );
 
+	int endOfFirstLine = rawResponse.find( "\r\n" );	// 最初のレスポンス行は無視する。
 	int headerOffset = rawResponse.find( "\r\n\r\n" );	// ヘッダは最初の CR LF CR LF まで
 
-	this->header = rawResponse.substr( 0, headerOffset+2 );	// ヘッダとの区切りの CRLF を一つ含む。
-	this->body = rawResponse.substr( headerOffset+4 );		// ヘッダとの区切りの CRLF は含まない。
-
+	if( endOfFirstLine == std::string::npos || headerOffset == std::string::npos )
+	{
+		throw CACOON_EXCEPTION( "サーバーからのレスポンスがありませんでした" );
+	}
+	// レスポンス行の CRLF を含まず、ヘッダとの区切りの CRLF を一つ含む。
+	this->header = boost::shared_ptr<HeaderMap>( new HeaderMap( rawResponse.substr( endOfFirstLine+2, headerOffset-endOfFirstLine ) ) );
+	// ヘッダとの区切りの CRLF は含まない。
+	this->body = rawResponse.substr( headerOffset+4 );
 }
 
 
@@ -29,9 +35,9 @@ int Response::StatusCode()
 	return this->statusCode;
 }
 
-const std::string & Response::Header()
+const HeaderMap & Response::Header()
 {
-	return this->header;
+	return *this->header;
 }
 
 const std::string & Response::Body()

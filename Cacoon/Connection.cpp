@@ -7,7 +7,7 @@ Connection::Connection( ConnectionImpl * pConnection )
 {
 }
 
-Response Connection::Request( const std::string & method, const std::string & url, const std::string & header )
+Response Connection::Request( const std::string & method, const std::string & url, const HeaderMap & header )
 {
 	return this->pImpl->Request( method, url, header );
 }

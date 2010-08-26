@@ -3,14 +3,6 @@
 #include "Connection.h"
 #include "Response.h"
 
-// 実際に HTTP 通信を行えるかテスト
-TEST( HttpTest, CreateHttpConnection )
-{
-	Connection conn = HttpClient::CreateHttpConnection( "www.google.co.jp" );
-	Response resp = conn.Request( Method::Get, "/" );
-	ASSERT_EQ( resp.StatusCode(), 200 );
-}
-
 // 疑似 HTTP 通信テスト
 TEST( HttpTest, CreateMockConnection )
 {

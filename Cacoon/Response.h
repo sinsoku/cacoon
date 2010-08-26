@@ -1,19 +1,21 @@
 #pragma once
 
+class HeaderMap;
+
 // HTTP のサーバーからのレスポンスを表すクラス
 class Response
 {
 public:
 	// サーバーから返った生の文字列からレスポンスを作成する
-	Response( const std::string & rawResponse );
+	explicit Response( const std::string & rawResponse );
 
 	int StatusCode();
-	const std::string & Header();
+	const HeaderMap & Header();
 	const std::string & Body();
-	
+
 private:
 
 	int statusCode;
-	std::string header;
+	boost::shared_ptr<HeaderMap> header;
 	std::string body;
 };

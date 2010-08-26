@@ -53,12 +53,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\lib\boost_1_43_0;..\lib\tinyxml_2_6_1;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\lib\boost_1_43_0;..\lib\tinyxml_2_6_1;..\lib\openssl-1.0.0a\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib\tinyxml_2_6_1\Debug;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\tinyxml_2_6_1\Debug;..\lib\openssl-1.0.0a\lib</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -117,6 +117,7 @@
     <ClInclude Include="Connection.h" />
     <ClInclude Include="ConnectionImpl.h" />
     <ClInclude Include="Exceptions.h" />
+    <ClInclude Include="HeaderMap.h" />
     <ClInclude Include="HttpClient.h" />
     <ClInclude Include="HttpConnection.h" />
     <ClInclude Include="HttpsConnection.h" />
@@ -135,7 +136,9 @@
     <ClCompile Include="CacoonView.cpp" />
     <ClCompile Include="CacooServer.cpp" />
     <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="ConnectionImpl.cpp" />
     <ClCompile Include="Exceptions.cpp" />
+    <ClCompile Include="HeaderMap.cpp" />
     <ClCompile Include="HttpClient.cpp" />
     <ClCompile Include="HttpConnection.cpp" />
     <ClCompile Include="HttpsConnection.cpp" />

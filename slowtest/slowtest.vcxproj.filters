@@ -5,40 +5,37 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
     <Filter Include="リソース ファイル">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="参照 ファイル">
-      <UniqueIdentifier>{770c5a84-a803-43e0-9807-33d0aa84acae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{d79aadf6-2a66-46f4-b32b-fe4d888afb49}</UniqueIdentifier>
+      <UniqueIdentifier>{adb566c5-d10e-4f14-9e5f-e16c9de4d1ca}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GTestSample.cpp">
+    <ClInclude Include="stdafx.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ExceptionTest.cpp">
+    <ClCompile Include="SlowTestSample.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cacoon\Exceptions.cpp">
-      <Filter>参照 ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="HttpTest.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cacoon\HttpClient.cpp">
-      <Filter>参照 ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\Cacoon\Connection.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cacoon\Response.cpp">
+    <ClCompile Include="..\Cacoon\Exceptions.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cacoon\Method.cpp">
+    <ClCompile Include="..\Cacoon\HttpClient.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\Cacoon\HttpConnection.cpp">
@@ -47,46 +44,26 @@
     <ClCompile Include="..\Cacoon\HttpsConnection.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cacoon\Method.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="..\Cacoon\MockConnection.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="CacooApiTest.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cacoon\CacooApi.cpp">
+    <ClCompile Include="..\Cacoon\Response.cpp">
       <Filter>参照 ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Cacoon\CacooServer.cpp">
-      <Filter>参照 ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="MockServer.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\Cacoon\HeaderMap.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="HttpsTest.cpp">
+    <ClCompile Include="SlowHttpTest.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SlowHttpsTest.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\Cacoon\ConnectionImpl.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="HeaderMapTest.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="MockServer.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

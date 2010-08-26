@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0B224660-A503-4FFD-80AC-35C29CB76B50}</ProjectGuid>
+    <ProjectGuid>{C74E5067-2C45-49F5-B27C-6769099C470D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>unittest</RootNamespace>
+    <RootNamespace>slowtest</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -45,18 +45,18 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\lib\gtest-1.5.0\include;..\lib\boost_1_43_0;..\lib\tinyxml_2_6_1;..\Cacoon;..\lib\openssl-1.0.0a\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeaderFile>StdAfx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib\gtest-1.5.0\msvc\gtest\Debug;..\lib\tinyxml_2_6_1\Debug;;..\lib\openssl-1.0.0a\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\gtest-1.5.0\msvc\gtest\Debug;..\lib\tinyxml_2_6_1\Debug;..\lib\openssl-1.0.0a\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -68,20 +68,18 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\lib\gtest-1.5.0\include;..\lib\boost_1_43_0;..\lib\tinyxml_2_6_1;..\Cacoon</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\lib\gtest-1.5.0\msvc\gtest\Debug;..\lib\tinyxml_2_6_1\Debug;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Cacoon\CacooApi.cpp" />
-    <ClCompile Include="..\Cacoon\CacooServer.cpp" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\Cacoon\Connection.cpp" />
     <ClCompile Include="..\Cacoon\ConnectionImpl.cpp" />
     <ClCompile Include="..\Cacoon\Exceptions.cpp" />
@@ -92,23 +90,10 @@
     <ClCompile Include="..\Cacoon\Method.cpp" />
     <ClCompile Include="..\Cacoon\MockConnection.cpp" />
     <ClCompile Include="..\Cacoon\Response.cpp" />
-    <ClCompile Include="CacooApiTest.cpp" />
-    <ClCompile Include="ExceptionTest.cpp" />
-    <ClCompile Include="GTestSample.cpp" />
-    <ClCompile Include="HeaderMapTest.cpp" />
-    <ClCompile Include="HttpsTest.cpp" />
-    <ClCompile Include="HttpTest.cpp" />
-    <ClCompile Include="MockServer.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MockServer.h" />
-    <ClInclude Include="stdafx.h" />
+    <ClCompile Include="SlowHttpsTest.cpp" />
+    <ClCompile Include="SlowHttpTest.cpp" />
+    <ClCompile Include="SlowTestSample.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

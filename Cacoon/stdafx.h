@@ -60,6 +60,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <map>
 
 #include <tinyxml.h>
 #ifdef _DEBUG
@@ -69,7 +70,17 @@
 #endif
 #include <boost/utility.hpp>
 #include <boost/shared_ptr.hpp>
+#include <boost/tokenizer.hpp>
+
+#include <openssl/crypto.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#include <openssl/rand.h>
 
 #include <WinSock2.h>
+
+#pragma comment( lib, "ws2_32.lib" )
+#pragma comment( lib, "libeay32.lib" )
+#pragma comment( lib, "ssleay32.lib" )
 
 #include "Exceptions.h"

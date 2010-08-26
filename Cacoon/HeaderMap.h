@@ -15,7 +15,7 @@ public:
 	std::string ToString() const;
 
 	// 指定したキーが存在するかどうか
-	bool IsKeyExists( const std::string & key );
+	bool IsKeyExists( const std::string & key ) const;
 
 	// 以下、map のラッピング
 	typedef std::map<std::string, std::string>::iterator iterator;
@@ -23,6 +23,7 @@ public:
 	void Insert( const std::string & key, const std::string & value );
 	void Erase( const std::string & key );
 	std::string & operator[]( const std::string & key );
+	const std::string & operator[]( const std::string & key ) const;
 	void Clear();
 	iterator Begin();
 	const_iterator Begin() const;

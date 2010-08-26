@@ -4,12 +4,7 @@
 HttpConnection::HttpConnection( const std::string & hostname )
 	: host( hostname )
 {
-	this->sock = socket( AF_INET, SOCK_STREAM, 0 );
-
-	if( sock == INVALID_SOCKET )
-	{
-		throw CACOON_EXCEPTION( "ソケット初期化エラー" );
-	}
+	ConnectionImpl::MakeSocket( &this->sock );
 
 	sockaddr_in server;
 	server.sin_family = AF_INET;
@@ -58,10 +53,21 @@ HttpConnection::~HttpConnection()
 	closesocket( this->sock );
 }
 
-Response HttpConnection::Request( const std::string & method, const std::string & url, const std::string & header )
+Response HttpConnection::Request( const std::string & method, const std::string & url, const HeaderMap & header )
 {
-	std::ostringstream ossReq( std::ios::binary );
-	ossReq << method << " " << url << " HTTP/1.1\r\nHost: " << this->host << "\r\n\r\n" << '\0';
+	if( header.IsKeyExists( "Host" ) )
+	{
+		throw CACOON_EXCEPTION( "Host ヘッダは必要ありません。" );
+	}
+	if( header.IsKeyExists( "Connection" ) )
+	{
+		throw CACOON_EXCEPTION( "Connection ヘッダは現時点では対応していません。" );
+	}
+	std::ostringstream ossReq( std::ios::binary ); // \r\n を正しく処理するためバイナリとする。
+	ossReq << method << " " << url << " HTTP/1.1\r\n"
+		"Host: " << this->host << "\r\n"
+		"Connection: close\r\n"
+		<< header.ToString() << "\r\n" << '\0';
 
 	// HTTP リクエスト送信
 	int n = send( this->sock, ossReq.str().c_str(), ossReq.str().length(), 0 );

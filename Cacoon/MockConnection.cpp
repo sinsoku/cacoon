@@ -11,7 +11,7 @@ MockConnection::~MockConnection()
 {
 }
 
-Response MockConnection::Request( const std::string & method, const std::string & url, const std::string & header )
+Response MockConnection::Request( const std::string & method, const std::string & url, const HeaderMap & header )
 {
 	std::string mockResponse = 
 "HTTP/1.1 200 OK\r\n"

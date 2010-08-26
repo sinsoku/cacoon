@@ -3,6 +3,7 @@
 
 #include "Method.h"
 #include "Response.h"
+#include "HeaderMap.h"
 
 class ConnectionImpl;
 
@@ -11,7 +12,7 @@ class ConnectionImpl;
 class Connection
 {
 public:
-	Response Request( const std::string & method, const std::string & url, const std::string & header = "" );
+	Response Request( const std::string & method, const std::string & url, const HeaderMap & header = HeaderMap() );
 
 private:
 	boost::shared_ptr<ConnectionImpl> pImpl;

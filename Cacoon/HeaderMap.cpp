@@ -16,8 +16,9 @@ HeaderMap::HeaderMap( const std::string & headerString )
 	Tokenizer line( headerString, lineSep );
 
 	Separator elementSep( ":" );		// 1 行を : で区切る
-
-	for( Tokenizer::iterator it = line.begin(); it != line.end(); it++ )
+	Tokenizer::iterator it = line.begin();
+	it++;	// 1 行目は読み飛ばす。(レスポンスヘッダは 2 行目から始まる)
+	for( ; it != line.end(); it++ )
 	{
 		Tokenizer element( *it, elementSep ); // : で区切る
 		
@@ -57,7 +58,7 @@ std::string HeaderMap::ToString() const
 }
 
 // 指定したキーが存在するかどうか
-bool HeaderMap::IsKeyExists( const std::string & key )
+bool HeaderMap::IsKeyExists( const std::string & key ) const
 {
 	return (this->innerMap.find( key ) != this->innerMap.end());
 }
@@ -78,6 +79,12 @@ void HeaderMap::Erase( const std::string & key )
 std::string & HeaderMap::operator[]( const std::string & key )
 {
 	return this->innerMap[key];
+}
+
+// [] 演算子によるアクセス const バージョン (map にはない)
+const std::string & HeaderMap::operator[]( const std::string & key ) const
+{
+	return this->innerMap.find( key )->second;
 }
 
 // map のラッピング: 要素の全削除

@@ -13,4 +13,3 @@
 #pragma comment( lib, "gtestd.lib" )
 #pragma comment( lib, "gtest_maind.lib" )
 #pragma comment( lib, "tinyxmld.lib" )
-#pragma comment( lib, "ws2_32.lib" )

@@ -53,10 +53,16 @@
     <ClCompile Include="..\Cacoon\Response.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="HttpTest.cpp">
+    <ClCompile Include="..\Cacoon\HeaderMap.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SlowHttpTest.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cacoon\HeaderMap.cpp">
+    <ClCompile Include="SlowHttpsTest.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\ConnectionImpl.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
   </ItemGroup>

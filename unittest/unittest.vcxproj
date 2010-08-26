@@ -49,14 +49,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\lib\gtest-1.5.0\include;..\lib\boost_1_43_0;..\lib\tinyxml_2_6_1;..\Cacoon</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\lib\gtest-1.5.0\include;..\lib\boost_1_43_0;..\lib\tinyxml_2_6_1;..\Cacoon;..\lib\openssl-1.0.0a\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeaderFile>StdAfx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\lib\gtest-1.5.0\msvc\gtest\Debug;..\lib\tinyxml_2_6_1\Debug;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\lib\gtest-1.5.0\msvc\gtest\Debug;..\lib\tinyxml_2_6_1\Debug;;..\lib\openssl-1.0.0a\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -81,6 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Cacoon\Connection.cpp" />
+    <ClCompile Include="..\Cacoon\ConnectionImpl.cpp" />
     <ClCompile Include="..\Cacoon\Exceptions.cpp" />
     <ClCompile Include="..\Cacoon\HeaderMap.cpp" />
     <ClCompile Include="..\Cacoon\HttpClient.cpp" />
@@ -91,6 +92,8 @@
     <ClCompile Include="..\Cacoon\Response.cpp" />
     <ClCompile Include="ExceptionTest.cpp" />
     <ClCompile Include="GTestSample.cpp" />
+    <ClCompile Include="HeaderMapTest.cpp" />
+    <ClCompile Include="HttpsTest.cpp" />
     <ClCompile Include="HttpTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

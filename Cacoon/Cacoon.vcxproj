@@ -53,13 +53,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\lib\boost_1_43_0;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\lib\boost_1_43_0;..\lib\openssl-1.0.0a\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>;..\lib\openssl-1.0.0a\lib</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -132,6 +131,7 @@
     <ClCompile Include="CacoonDoc.cpp" />
     <ClCompile Include="CacoonView.cpp" />
     <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="ConnectionImpl.cpp" />
     <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="HeaderMap.cpp" />
     <ClCompile Include="HttpClient.cpp" />

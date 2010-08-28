@@ -13,6 +13,7 @@ public:
 
 private:
 	SOCKET sock;
+	SOCKADDR_IN addr;
 	const std::string host;
 };
 

@@ -1,17 +1,21 @@
 #include "stdafx.h"
 #include "ConnectionImpl.h"
 
-void ConnectionImpl::MakeSocket( SOCKET * pSocketOut )
+// ソケットの作成
+SOCKET ConnectionImpl::MakeSocket()
 {
-	*pSocketOut = socket( AF_INET, SOCK_STREAM, 0 );
+	SOCKET resultSocket = socket( AF_INET, SOCK_STREAM, 0 );
 
-	if( *pSocketOut == INVALID_SOCKET )
+	if( resultSocket == INVALID_SOCKET )
 	{
 		throw CACOON_EXCEPTION( "ソケット初期化エラー" );
 	}
+
+	return resultSocket;
 }
 
-void ConnectionImpl::MakeConnection( SOCKET sock, const std::string & hostname, int port )
+// アドレスファミリーの作成
+SOCKADDR_IN ConnectionImpl::MakeAddressFamily( SOCKET sock, const std::string & hostname, int port )
 {
 	sockaddr_in server;
 	server.sin_family = AF_INET;
@@ -33,23 +37,36 @@ void ConnectionImpl::MakeConnection( SOCKET sock, const std::string & hostname, 
 
 			if( connect( sock, (sockaddr *)&server, sizeof( server ) ) == 0 )
 			{	// connect が成功したらループを抜ける
-				break;
+				return server;
 			}
 			else
 			{	// 次のアドレスをさす
 				addressList++;
 			}
 		}
-		if( *addressList == NULL )
-		{	// connect がすべて失敗した場合
-			throw CACOON_EXCEPTION( "connect に失敗" );
-		}
+		// connect がすべて失敗した場合
+		throw CACOON_EXCEPTION( "connect に失敗" );
 	}
 	else
 	{	// host が数字列の場合
-		if( connect( sock, (sockaddr *)&server, sizeof( server ) ) != 0 )
+		if( connect( sock, (sockaddr *)&server, sizeof( server ) ) == 0 )
+		{
+			return server;
+		}
+		else
 		{
 			throw CACOON_EXCEPTION( "connect に失敗" );
 		}
+	}
+}
+
+// 接続の確立
+void ConnectionImpl::Connect( SOCKET sock, SOCKADDR_IN addr  )
+{
+	int n = connect( sock, (sockaddr *)&addr, sizeof( addr ) );
+
+	if( n != 0 )
+	{
+		throw CACOON_EXCEPTION( "connect に失敗" );
 	}
 }

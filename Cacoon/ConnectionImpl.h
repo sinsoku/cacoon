@@ -13,8 +13,11 @@ public:
 protected:
 
 	// ソケットの作成
-	static void MakeSocket( SOCKET * pSocketOut );
+	static SOCKET MakeSocket();
 
-	// コネクションの確立
-	static void MakeConnection( SOCKET sock, const std::string & host, int port );
+	// アドレスファミリーの作成
+	static SOCKADDR_IN MakeAddressFamily( SOCKET sock, const std::string & host, int port );
+
+	// 接続の確立
+	static void Connect( SOCKET sock, SOCKADDR_IN addr );
 };

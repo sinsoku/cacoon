@@ -4,14 +4,14 @@
 HttpConnection::HttpConnection( const std::string & hostname )
 	: host( hostname )
 {
-	ConnectionImpl::MakeSocket( &this->sock );
-	ConnectionImpl::MakeConnection( this->sock, hostname, 80 );
+	this->sock = ConnectionImpl::MakeSocket();
+	this->addr = ConnectionImpl::MakeAddressFamily( this->sock, hostname, 80 );
+	closesocket( this->sock );
 }
 
 
 HttpConnection::~HttpConnection()
 {
-	closesocket( this->sock );
 }
 
 Response HttpConnection::Request( const std::string & method, const std::string & url, const HeaderMap & header )
@@ -30,6 +30,9 @@ Response HttpConnection::Request( const std::string & method, const std::string 
 		"Connection: close\r\n"
 		<< header.ToString() << "\r\n" << '\0';
 
+	// コネクション確立
+	this->sock = ConnectionImpl::MakeSocket();
+	ConnectionImpl::Connect( this->sock, this->addr );
 	// HTTP リクエスト送信
 	int n = send( this->sock, ossReq.str().c_str(), ossReq.str().length(), 0 );
 	if( n < 0 )

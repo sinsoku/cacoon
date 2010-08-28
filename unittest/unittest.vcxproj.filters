@@ -47,9 +47,6 @@
     <ClCompile Include="..\Cacoon\HttpsConnection.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cacoon\MockConnection.cpp">
-      <Filter>参照 ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -75,6 +72,9 @@
       <Filter>参照 ファイル</Filter>
     </ClCompile>
     <ClCompile Include="HeaderMapTest.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="MockConnection.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

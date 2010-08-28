@@ -2,7 +2,6 @@
 #include "HttpClient.h"
 #include "HttpConnection.h"
 #include "HttpsConnection.h"
-#include "MockConnection.h"
 
 HttpClient HttpClient::httpClient;	// 唯一のインスタンス (ここで自動的にコンストラクタが呼ばれる)
 

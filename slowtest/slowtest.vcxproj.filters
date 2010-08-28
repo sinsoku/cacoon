@@ -47,9 +47,6 @@
     <ClCompile Include="..\Cacoon\Method.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cacoon\MockConnection.cpp">
-      <Filter>参照 ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cacoon\Response.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>

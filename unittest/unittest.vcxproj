@@ -90,7 +90,6 @@
     <ClCompile Include="..\Cacoon\HttpConnection.cpp" />
     <ClCompile Include="..\Cacoon\HttpsConnection.cpp" />
     <ClCompile Include="..\Cacoon\Method.cpp" />
-    <ClCompile Include="..\Cacoon\MockConnection.cpp" />
     <ClCompile Include="..\Cacoon\Response.cpp" />
     <ClCompile Include="CacooApiTest.cpp" />
     <ClCompile Include="ExceptionTest.cpp" />
@@ -98,6 +97,7 @@
     <ClCompile Include="HeaderMapTest.cpp" />
     <ClCompile Include="HttpsTest.cpp" />
     <ClCompile Include="HttpTest.cpp" />
+    <ClCompile Include="MockConnection.cpp" />
     <ClCompile Include="MockServer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

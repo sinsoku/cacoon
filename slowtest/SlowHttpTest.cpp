@@ -21,5 +21,4 @@ TEST( HttpConnectionTest, RealConnection )
 	Response res = c.Request( Method::Get, "/index.html" );
 	std::cout << res.Header().ToString() << "\r\n" << res.Body() << std::endl;
 	ASSERT_EQ( res.StatusCode(), 200 );
-
 }

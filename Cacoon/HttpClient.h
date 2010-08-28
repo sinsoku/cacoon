@@ -9,10 +9,7 @@ class HttpClient
 public:
 	static Connection CreateHttpConnection( const std::string & host );
 	static Connection CreateHttpsConnection( const std::string & host );
-
-	// テスト用
-	static Connection CreateMockConnection( const std::string & host );
-
+	
 	~HttpClient();
 
 private:

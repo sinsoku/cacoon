@@ -31,9 +31,3 @@ Connection HttpClient::CreateHttpsConnection( const std::string & host )
 {
 	return Connection( new HttpsConnection( host ) );
 }
-
-// テスト用のモッククラス作成
-Connection HttpClient::CreateMockConnection( const std::string & host )
-{
-	return Connection( new MockConnection( host ) );
-}

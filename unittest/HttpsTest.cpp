@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+// OpenSSL のチェック
 TEST( HttpsTest, OpenSslInitialization )
 {
 	SSL_load_error_strings();

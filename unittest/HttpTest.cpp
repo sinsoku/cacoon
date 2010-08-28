@@ -1,13 +1,16 @@
 #include "stdafx.h"
 #include "HttpClient.h"
+
 #include "Connection.h"
+
+#include "MockConnection.h"
 #include "Response.h"
 
 // 疑似 HTTP 通信テスト
 TEST( HttpTest, CreateMockConnection )
 {
-	Connection conn = HttpClient::CreateMockConnection( "Mock" );
-	Response resp = conn.Request( Method::Get, "/" );
+	boost::shared_ptr<ConnectionImpl> pConn( new MockConnection( "Mock" ) );
+	Response resp = pConn->Request( Method::Get, "/", HeaderMap() );
 	ASSERT_EQ( resp.StatusCode(), 200 );
 }
 

@@ -16,5 +16,5 @@ protected:
 	static void MakeSocket( SOCKET * pSocketOut );
 
 	// コネクションの確立
-	static void MakeConnection( const char * host, int port );
+	static void MakeConnection( SOCKET sock, const std::string & host, int port );
 };

@@ -2,7 +2,7 @@
 #include "CacooApi.h"
 #include "MockServer.h"
 
-TEST(CacooApi, parse)
+TEST(CacooApi, parseXml)
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -12,7 +12,7 @@ TEST(CacooApi, parse)
 		"  <imageUrl>https://cacoo.com/account/yoko/image/32x32</imageUrl>"
 		"</account>";
 	std::map<std::string, std::string> xmldata;
-	xmldata = CacooApi::parseXml(resXmlData);
+	CacooApi::parseXml(xmldata, resXmlData);
 	
 	EXPECT_EQ("yoko", xmldata["name"]);
 	EXPECT_EQ("Yoko", xmldata["nickname"]);

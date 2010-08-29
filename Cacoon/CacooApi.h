@@ -7,6 +7,11 @@ public:
 	std::string name;
 	std::string nickname;
 	std::string imageUrl;
+	void valueOf(std::map<std::string, std::string> xmlData) {
+		name     = xmlData["name"];
+		nickname = xmlData["nickname"];
+		imageUrl = xmlData["imageUrl"];
+	}
 };
 
 class CacooSheet
@@ -92,6 +97,7 @@ public:
 	static std::vector<CacooChatMessage> parseChatMessages(const std::string& xmlData);
 	static std::vector<CacooFolder> parseFolders(const std::string& xmlData);
 	static CacooUser parseUser(const std::string& xmlData);
-	static std::map<std::string, std::string> parseXml(const std::string& xmlData);
+	static void parseXml(std::map<std::string, std::string>&, const std::string& xmlData);
+	static void parseSubItem(std::map<std::string, std::string>&, TiXmlElement*);
 	void setServer(CacooServer* server);
 };

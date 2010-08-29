@@ -94,36 +94,19 @@ std::vector<CacooFolder> CacooApi::parseFolders(const std::string& xmlData)
 	return cfv;
 }
 
-CacooUser CacooApi::parseUser(const std::string& xmlData)
+CacooUser CacooApi::parseUser(const std::string& rawXmlData)
 {
-	// テンプファイルに書込み
-	char xmltmpfile[] = "xmltmp.xml";
-	std::ofstream ofs(xmltmpfile);
-	ofs << xmlData;
-	ofs.close();
+	std::map<std::string, std::string> xmlData;
+	CacooApi::parseXml(xmlData, rawXmlData);
 
-	// TinyXmlで読込み
-	TiXmlDocument doc(xmltmpfile);
-	doc.LoadFile();
-
-	// テンプファイルの削除
-	remove(xmltmpfile);
-
+	// map<string, string>からデータを設定
 	CacooUser cu;
-	TiXmlElement* root = doc.RootElement();
-	TiXmlElement* e = root->FirstChildElement();
-	cu.name = e->GetText();
-
-	TiXmlElement* e1 = e->NextSiblingElement();
-	cu.nickname = e1->GetText();
-
-	TiXmlElement* e2 = e1->NextSiblingElement();
-	cu.imageUrl = e2->GetText();
+	cu.valueOf(xmlData);
 
 	return cu;
 }
 
-std::map<std::string, std::string> CacooApi::parseXml(const std::string& rawXmlData)
+void CacooApi::parseXml(std::map<std::string, std::string>& xmlData, const std::string& rawXmlData)
 {
 	// テンプファイルに書込み
 	char xmltmpfile[] = "xmltmp.xml";
@@ -138,16 +121,23 @@ std::map<std::string, std::string> CacooApi::parseXml(const std::string& rawXmlD
 	// テンプファイルの削除
 	remove(xmltmpfile);
 
-	std::map<std::string, std::string> xmlData;
+	// XMLのrootを取得し、ツリー構造を読込み。
 	TiXmlElement* root = doc.RootElement();
-	TiXmlElement* e = root->FirstChildElement();
-	xmlData.insert( std::make_pair("name", e->GetText()) );
+	parseSubItem(xmlData, root);
+}
 
-	TiXmlElement* e1 = e->NextSiblingElement();
-	xmlData.insert( std::make_pair("nickname", e1->GetText()) );
-
-	TiXmlElement* e2 = e1->NextSiblingElement();
-	xmlData.insert( std::make_pair("imageUrl", e2->GetText()) );
-
-	return xmlData;
+void CacooApi::parseSubItem(std::map<std::string, std::string>& xmlData, TiXmlElement* e)
+{
+	if(e == NULL) {
+		return;
+	}
+	for(e ; e ; e = e->NextSiblingElement())
+	{
+		const char* key   = e->Value();
+		const char* value = e->GetText();
+		if(value != NULL) {
+			xmlData.insert( std::make_pair(key, value) );
+		}
+		parseSubItem(xmlData, e->FirstChildElement());
+	}
 }

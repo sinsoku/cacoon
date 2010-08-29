@@ -4,11 +4,13 @@
 #include <vector>
 CacooApi::CacooApi(void)
 {
+	cacooServer = new CacooServer();
 }
 
 
 CacooApi::~CacooApi(void)
 {
+	delete cacooServer;
 }
 
 std::vector<CacooDiagram> CacooApi::Diagrams()
@@ -44,14 +46,14 @@ std::vector<CacooFolder> CacooApi::Folders()
 	return CacooApi::parseFolders(resXmlData);
 }
 
-CacooUser CacooApi::users(const std::string& name)
+CacooUser CacooApi::Users(const std::string& name)
 {
 	std::string url = "http://cacoo.com/api/v1/users/" + name + ".xml";
 	std::string resXmlData = cacooServer->get(url);
 	return CacooApi::parseUser(resXmlData);
 }
 
-CacooUser CacooApi::account()
+CacooUser CacooApi::Account()
 {
 	std::string url = "http://cacoo.com/api/v1/account.xml";
 	std::string resXmlData = cacooServer->get(url);
@@ -60,6 +62,7 @@ CacooUser CacooApi::account()
 
 void CacooApi::setServer(CacooServer* server)
 {
+	delete cacooServer;
 	cacooServer = server;
 }
 

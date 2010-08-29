@@ -82,11 +82,11 @@ public:
 	~CacooApi(void);
 	std::vector<CacooDiagram> Diagrams();
 	CacooDiagram Diagram(const std::string& diagramId);
-	CacooUser users(const std::string& name);
+	CacooUser Users(const std::string& name);
 	void Image(const std::string& name);
-	std::vector<CacooChatMessage> CacooApi::ChatMessages(const std::string& diagramId);
-	std::vector<CacooFolder> CacooApi::Folders();
-	CacooUser account(void);
+	std::vector<CacooChatMessage> ChatMessages(const std::string& diagramId);
+	std::vector<CacooFolder> Folders();
+	CacooUser Account(void);
 	static std::vector<CacooDiagram> parseDiagrams(const std::string& xmlData);
 	static CacooDiagram parseDiagram(const std::string& xmlData);
 	static std::vector<CacooChatMessage> parseChatMessages(const std::string& xmlData);

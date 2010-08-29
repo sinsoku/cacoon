@@ -23,12 +23,11 @@ TEST(CacooApi, users)
 	MockServer* mock = new MockServer();
 	CacooApi api;
 	api.setServer(mock);
-	CacooUser user = api.users("yoko");
+	CacooUser user = api.Users("yoko");
 
 	EXPECT_STREQ("yoko", user.name.c_str());
 	EXPECT_STREQ("Yoko", user.nickname.c_str());
 	EXPECT_STREQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl.c_str());
-	delete mock;
 }
 
 TEST(CacooApi, account)
@@ -36,10 +35,9 @@ TEST(CacooApi, account)
 	MockServer* mock = new MockServer();
 	CacooApi api;
 	api.setServer(mock);
-	CacooUser user = api.account();
+	CacooUser user = api.Account();
 
 	EXPECT_STREQ("yoko", user.name.c_str());
 	EXPECT_STREQ("Yoko", user.nickname.c_str());
 	EXPECT_STREQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl.c_str());
-	delete mock;
 }

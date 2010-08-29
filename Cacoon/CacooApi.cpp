@@ -125,10 +125,29 @@ CacooUser CacooApi::parseUser(const std::string& xmlData)
 
 std::map<std::string, std::string> CacooApi::parseXml(const std::string& rawXmlData)
 {
+	// テンプファイルに書込み
+	char xmltmpfile[] = "xmltmp.xml";
+	std::ofstream ofs(xmltmpfile);
+	ofs << rawXmlData;
+	ofs.close();
+
+	// TinyXmlで読込み
+	TiXmlDocument doc(xmltmpfile);
+	doc.LoadFile();
+
+	// テンプファイルの削除
+	remove(xmltmpfile);
+
 	std::map<std::string, std::string> xmlData;
-	xmlData.insert( std::make_pair("name", "yoko"));
-	xmlData.insert( std::make_pair("nickname", "Yoko"));
-	xmlData.insert( std::make_pair("imageUrl", "https://cacoo.com/account/yoko/image/32x32"));
+	TiXmlElement* root = doc.RootElement();
+	TiXmlElement* e = root->FirstChildElement();
+	xmlData.insert( std::make_pair("name", e->GetText()) );
+
+	TiXmlElement* e1 = e->NextSiblingElement();
+	xmlData.insert( std::make_pair("nickname", e1->GetText()) );
+
+	TiXmlElement* e2 = e1->NextSiblingElement();
+	xmlData.insert( std::make_pair("imageUrl", e2->GetText()) );
 
 	return xmlData;
 }

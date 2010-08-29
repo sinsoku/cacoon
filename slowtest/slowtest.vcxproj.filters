@@ -62,5 +62,8 @@
     <ClCompile Include="..\Cacoon\ConnectionImpl.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cacoon\SocketConnector.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

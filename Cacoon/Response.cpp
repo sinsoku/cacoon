@@ -4,6 +4,10 @@
 // コンストラクタ
 Response::Response( const std::string & rawResponse )
 {
+	if( rawResponse.length() < 13 )
+	{
+		throw CACOON_EXCEPTION( "レスポンス文字列が不正です" );
+	}
 	const int StatusOffset = 9;	// ステータスコードはレスポンスヘッダの 9 文字目から始まる。
 	char statusCodeAsString[4];
 
@@ -13,7 +17,7 @@ Response::Response( const std::string & rawResponse )
 	}
 	statusCodeAsString[3] = '\0';
 
-	this->statusCode = atoi( statusCodeAsString );
+	this->statusCode = boost::lexical_cast<int, char *>( statusCodeAsString );
 
 	int endOfFirstLine = rawResponse.find( "\r\n" );	// 最初のレスポンス行は無視する。
 	int headerOffset = rawResponse.find( "\r\n\r\n" );	// ヘッダは最初の CR LF CR LF まで

@@ -11,7 +11,7 @@ TEST( HttpTest, CreateMockConnection )
 {
 	boost::shared_ptr<ConnectionImpl> pConn( new MockConnection( "Mock" ) );
 	Response resp = pConn->Request( Method::Get, "/", HeaderMap() );
-	ASSERT_EQ( resp.StatusCode(), 200 );
+	EXPECT_EQ( 200, resp.StatusCode() );
 }
 
 // ソケット作成テスト
@@ -25,7 +25,7 @@ TEST( SocketTest, CreateSocket )
 
 	SOCKET sock = socket( AF_INET, SOCK_STREAM, 0 );	// TCP のソケットを作成
 
-	EXPECT_NE( sock, INVALID_SOCKET );
+	EXPECT_NE( INVALID_SOCKET, sock );
 
 	WSACleanup();
 }
@@ -36,7 +36,7 @@ TEST( SocketTest, InitializeWinSock )
 	WSADATA wsaData;
 	int err = WSAStartup( MAKEWORD( 2, 0 ), &wsaData );
 	
-	ASSERT_EQ( err, 0 );
+	EXPECT_EQ( 0, err );
 
 	WSACleanup();
 }

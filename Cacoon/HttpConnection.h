@@ -1,6 +1,6 @@
 #pragma once
 #include "ConnectionImpl.h"
-#include "HeaderMap.h"
+#include "SocketConnector.h"
 
 class HttpConnection : public ConnectionImpl
 {
@@ -12,8 +12,7 @@ public:
 	Response Request( const std::string & method, const std::string & url, const HeaderMap & header );
 
 private:
-	SOCKET sock;
-	SOCKADDR_IN addr;
+	SocketConnector sock;
 	const std::string host;
 };
 

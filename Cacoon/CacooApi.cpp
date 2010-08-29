@@ -122,3 +122,13 @@ CacooUser CacooApi::parseUser(const std::string& xmlData)
 
 	return cu;
 }
+
+std::map<std::string, std::string> CacooApi::parseXml(const std::string& rawXmlData)
+{
+	std::map<std::string, std::string> xmlData;
+	xmlData.insert( std::make_pair("name", "yoko"));
+	xmlData.insert( std::make_pair("nickname", "Yoko"));
+	xmlData.insert( std::make_pair("imageUrl", "https://cacoo.com/account/yoko/image/32x32"));
+
+	return xmlData;
+}

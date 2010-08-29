@@ -92,5 +92,6 @@ public:
 	static std::vector<CacooChatMessage> parseChatMessages(const std::string& xmlData);
 	static std::vector<CacooFolder> parseFolders(const std::string& xmlData);
 	static CacooUser parseUser(const std::string& xmlData);
+	static std::map<std::string, std::string> parseXml(const std::string& xmlData);
 	void setServer(CacooServer* server);
 };

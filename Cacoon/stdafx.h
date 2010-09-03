@@ -73,6 +73,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/tokenizer.hpp>
 #include <boost/lexical_cast.hpp>
+#include <boost/foreach.hpp>
 
 #include <openssl/crypto.h>
 #include <openssl/ssl.h>

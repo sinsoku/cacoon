@@ -74,6 +74,7 @@
 #include <boost/tokenizer.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/foreach.hpp>
+#include <boost/format.hpp>
 
 #include <openssl/crypto.h>
 #include <openssl/ssl.h>
@@ -81,8 +82,10 @@
 #include <openssl/rand.h>
 
 #include <WinSock2.h>
+#include <WinCrypt.h>
 
 #pragma comment( lib, "ws2_32.lib" )
+#pragma comment( lib, "Crypt32.lib" )
 #pragma comment( lib, "libeay32.lib" )
 #pragma comment( lib, "ssleay32.lib" )
 

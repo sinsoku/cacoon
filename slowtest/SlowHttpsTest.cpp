@@ -37,6 +37,6 @@ TEST( HttpsConnectionTest, RealConnection )
 
 	EXPECT_EQ( 200, res.StatusCode() );
 						
-	std::cout << res.StatusCode() << std::endl;
-	std::cout << res.Header().ToString() << "\r\n" << res.Body() << std::endl;
+	//std::cout << res.StatusCode() << std::endl;
+	//std::cout << res.Header().ToString() << "\r\n" << res.Body() << std::endl;
 }

@@ -92,7 +92,6 @@
     <ClCompile Include="..\Cacoon\Method.cpp" />
     <ClCompile Include="..\Cacoon\Response.cpp" />
     <ClCompile Include="..\Cacoon\SocketConnector.cpp" />
-    <ClCompile Include="SlowOAuthTest.cpp" />
     <ClCompile Include="SlowHttpsTest.cpp" />
     <ClCompile Include="SlowHttpTest.cpp" />
     <ClCompile Include="SlowTestSample.cpp" />

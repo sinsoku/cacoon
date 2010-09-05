@@ -37,7 +37,7 @@ TEST(CacooApi, paserUser)
 
 TEST(CacooApi, users) 
 {
-	MockServer* mock = new MockServer();
+	boost::shared_ptr<CacooServer> mock(new MockServer());
 	CacooApi api;
 	api.setServer(mock);
 	CacooUser user = api.Users("yoko");
@@ -49,7 +49,7 @@ TEST(CacooApi, users)
 
 TEST(CacooApi, account)
 {
-	MockServer* mock = new MockServer();
+	boost::shared_ptr<CacooServer> mock(new MockServer());
 	CacooApi api;
 	api.setServer(mock);
 	CacooUser user = api.Account();

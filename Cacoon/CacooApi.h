@@ -1,4 +1,6 @@
 #pragma once
+#include "stdafx.h"
+
 #include "CacooServer.h"
 
 class CacooUser
@@ -80,7 +82,7 @@ public:
 class CacooApi
 {
 private:
-	CacooServer* cacooServer;
+	boost::shared_ptr<CacooServer> cacooServer;
 
 public:
 	CacooApi(void);
@@ -99,5 +101,5 @@ public:
 	static CacooUser parseUser(const std::string& xmlData);
 	static void parseXml(std::map<std::string, std::string>&, const std::string& xmlData);
 	static void parseSubItem(std::map<std::string, std::string>&, TiXmlElement*);
-	void setServer(CacooServer* server);
+	void setServer(boost::shared_ptr<CacooServer> server);
 };

@@ -2,15 +2,15 @@
 #include "CacooApi.h"
 #include <string>
 #include <vector>
+
 CacooApi::CacooApi(void)
 {
-	cacooServer = new CacooServer();
+	cacooServer = boost::shared_ptr<CacooServer>(new CacooServer());
 }
 
 
 CacooApi::~CacooApi(void)
 {
-	delete cacooServer;
 }
 
 std::vector<CacooDiagram> CacooApi::Diagrams()
@@ -60,9 +60,8 @@ CacooUser CacooApi::Account()
 	return CacooApi::parseUser(resXmlData);
 }
 
-void CacooApi::setServer(CacooServer* server)
+void CacooApi::setServer(boost::shared_ptr<CacooServer> server)
 {
-	delete cacooServer;
 	cacooServer = server;
 }
 

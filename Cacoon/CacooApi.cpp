@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-CacooApi::CacooApi(void)
+CacooApi::CacooApi(boost::shared_ptr<CacooServer> server)
 {
-	cacooServer = boost::shared_ptr<CacooServer>(new CacooServer());
+	cacooServer = server;
 }
 
 
@@ -58,11 +58,6 @@ CacooUser CacooApi::Account()
 	std::string url = "http://cacoo.com/api/v1/account.xml";
 	std::string resXmlData = cacooServer->get(url);
 	return CacooApi::parseUser(resXmlData);
-}
-
-void CacooApi::setServer(boost::shared_ptr<CacooServer> server)
-{
-	cacooServer = server;
 }
 
 std::vector<CacooDiagram> CacooApi::parseDiagrams(const std::string& xmlData)

@@ -30,31 +30,49 @@ TEST(CacooApi, paserUser)
 		"</account>";
 	CacooUser user = CacooApi::parseUser(resXmlData);
 
-	EXPECT_STREQ("yoko", user.name.c_str());
-	EXPECT_STREQ("Yoko", user.nickname.c_str());
-	EXPECT_STREQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl.c_str());
+	EXPECT_EQ("yoko", user.name);
+	EXPECT_EQ("Yoko", user.nickname);
+	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl);
+}
+
+TEST(CacooApi, diagrams)
+{
+}
+
+TEST(CacooApi, diagram)
+{
 }
 
 TEST(CacooApi, users) 
 {
 	boost::shared_ptr<CacooServer> mock(new MockServer());
-	CacooApi api;
-	api.setServer(mock);
+	CacooApi api(mock);
 	CacooUser user = api.Users("yoko");
 
-	EXPECT_STREQ("yoko", user.name.c_str());
-	EXPECT_STREQ("Yoko", user.nickname.c_str());
-	EXPECT_STREQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl.c_str());
+	EXPECT_EQ("yoko", user.name);
+	EXPECT_EQ("Yoko", user.nickname);
+	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl);
+}
+
+TEST(CacooApi, image)
+{
+}
+
+TEST(CacooApi, chatmessages)
+{
+}
+
+TEST(CacooApi, folders)
+{
 }
 
 TEST(CacooApi, account)
 {
 	boost::shared_ptr<CacooServer> mock(new MockServer());
-	CacooApi api;
-	api.setServer(mock);
+	CacooApi api(mock);
 	CacooUser user = api.Account();
 
-	EXPECT_STREQ("yoko", user.name.c_str());
-	EXPECT_STREQ("Yoko", user.nickname.c_str());
-	EXPECT_STREQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl.c_str());
+	EXPECT_EQ("yoko", user.name);
+	EXPECT_EQ("Yoko", user.nickname);
+	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl);
 }

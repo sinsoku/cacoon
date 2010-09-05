@@ -85,7 +85,7 @@ private:
 	boost::shared_ptr<CacooServer> cacooServer;
 
 public:
-	CacooApi(void);
+	CacooApi(boost::shared_ptr<CacooServer>);
 	~CacooApi(void);
 	std::vector<CacooDiagram> Diagrams();
 	CacooDiagram Diagram(const std::string& diagramId);
@@ -101,5 +101,4 @@ public:
 	static CacooUser parseUser(const std::string& xmlData);
 	static void parseXml(std::map<std::string, std::string>&, const std::string& xmlData);
 	static void parseSubItem(std::map<std::string, std::string>&, TiXmlElement*);
-	void setServer(boost::shared_ptr<CacooServer> server);
 };

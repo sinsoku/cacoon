@@ -90,6 +90,7 @@
     <ClCompile Include="..\Cacoon\HttpConnection.cpp" />
     <ClCompile Include="..\Cacoon\HttpsConnection.cpp" />
     <ClCompile Include="..\Cacoon\Method.cpp" />
+    <ClCompile Include="..\Cacoon\OAuthHandler.cpp" />
     <ClCompile Include="..\Cacoon\Response.cpp" />
     <ClCompile Include="..\Cacoon\SocketConnector.cpp" />
     <ClCompile Include="CacooApiTest.cpp" />

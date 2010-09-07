@@ -1,5 +1,17 @@
 #include "stdafx.h"
 #include "HttpClient.h"
+#include "OAuthHandler.h"
+
+// URL エンコーディング
+TEST( OAuthTest, UrlEncoging )
+{
+	const std::string source = "https://auth.login.yahoo.co.jp/oauth/v2/get_request_token";
+	const std::string expect = "https%3A%2F%2Fauth.login.yahoo.co.jp%2Foauth%2Fv2%2Fget_request_token";
+
+	const std::string urlEnc = OAuthHandler::UrlEncode( source );
+
+	EXPECT_EQ( expect, urlEnc );
+}
 
 // OpenSSL HMAC-SHA1 + Base64 エンコーディング
 TEST( OAuthTest, HmacSha1Base64 )

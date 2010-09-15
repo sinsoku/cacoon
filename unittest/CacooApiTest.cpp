@@ -42,9 +42,9 @@ TEST(CacooApi, paserUser)
 		"</account>";
 	CacooUser user = CacooApi::parseUser(resXmlData);
 
-	EXPECT_EQ("yoko", user.name);
-	EXPECT_EQ("Yoko", user.nickname);
-	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl);
+	EXPECT_EQ("yoko", user.getName() );
+	EXPECT_EQ("Yoko", user.getNickName() );
+	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.getImageUrl() );
 }
 
 TEST(CacooApi, diagrams)
@@ -61,9 +61,9 @@ TEST(CacooApi, users)
 	CacooApi api(mock);
 	CacooUser user = api.Users("yoko");
 
-	EXPECT_EQ("yoko", user.name);
-	EXPECT_EQ("Yoko", user.nickname);
-	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl);
+	EXPECT_EQ("yoko", user.getName() );
+	EXPECT_EQ("Yoko", user.getNickName() );
+	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.getImageUrl() );
 }
 
 TEST(CacooApi, image)
@@ -84,7 +84,6 @@ TEST(CacooApi, account)
 	CacooApi api(mock);
 	CacooUser user = api.Account();
 
-	EXPECT_EQ("yoko", user.name);
-	EXPECT_EQ("Yoko", user.nickname);
-	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.imageUrl);
-}
+	EXPECT_EQ("yoko", user.getName() );
+	EXPECT_EQ("Yoko", user.getNickName() );
+	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.getImageUrl() );}

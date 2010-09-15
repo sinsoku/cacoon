@@ -12,4 +12,19 @@ public:
 		nickname = xmlData["nickname"];
 		imageUrl = xmlData["imageUrl"];
 	}
+public:
+	CacooUser() {}
+	CacooUser(TiXmlDocument& doc) {
+		TiXmlElement* root = doc.RootElement();
+
+		TiXmlElement* e = root->FirstChildElement();
+		name = e->GetText();
+
+		TiXmlElement* e1 = e->NextSiblingElement();
+		nickname = e1->GetText();
+
+		TiXmlElement* e2 = e1->NextSiblingElement();
+		imageUrl = e2->GetText();
+	}
+	~CacooUser() {}
 };

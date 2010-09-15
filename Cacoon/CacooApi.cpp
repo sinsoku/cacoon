@@ -1,7 +1,5 @@
 #include "StdAfx.h"
 #include "CacooApi.h"
-#include <string>
-#include <vector>
 
 CacooApi::CacooApi(boost::shared_ptr<CacooServer> server)
 {

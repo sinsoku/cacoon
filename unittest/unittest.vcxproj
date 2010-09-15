@@ -94,6 +94,7 @@
     <ClCompile Include="..\Cacoon\Response.cpp" />
     <ClCompile Include="..\Cacoon\SocketConnector.cpp" />
     <ClCompile Include="CacooApiTest.cpp" />
+    <ClCompile Include="CacooUserTest.cpp" />
     <ClCompile Include="ExceptionTest.cpp" />
     <ClCompile Include="GTestSample.cpp" />
     <ClCompile Include="HeaderMapTest.cpp" />
@@ -110,6 +111,10 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Cacoon\CacooComment.hpp" />
+    <ClInclude Include="..\Cacoon\CacooDiagram.hpp" />
+    <ClInclude Include="..\Cacoon\CacooSheet.hpp" />
+    <ClInclude Include="..\Cacoon\CacooUser.hpp" />
     <ClInclude Include="MockServer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

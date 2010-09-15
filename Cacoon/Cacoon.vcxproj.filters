@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ヘッダー ファイル\CacooApi">
+      <UniqueIdentifier>{9c0165bf-212c-4984-a4f3-ef9d807d63d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CacooApi">
+      <UniqueIdentifier>{4a5c3ffc-efc2-45ff-8c34-2c8fc81c58f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -81,9 +87,6 @@
     <ClInclude Include="HttpsConnection.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="CacooApi.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CacooServer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -95,6 +98,27 @@
     </ClInclude>
     <ClInclude Include="OAuthHandler.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CacooApi.h">
+      <Filter>ヘッダー ファイル\CacooApi</Filter>
+    </ClInclude>
+    <ClInclude Include="CacooDiagram.hpp">
+      <Filter>ソース ファイル\CacooApi</Filter>
+    </ClInclude>
+    <ClInclude Include="CacooUser.hpp">
+      <Filter>ソース ファイル\CacooApi</Filter>
+    </ClInclude>
+    <ClInclude Include="CacooComment.hpp">
+      <Filter>ソース ファイル\CacooApi</Filter>
+    </ClInclude>
+    <ClInclude Include="CacooSheet.hpp">
+      <Filter>ソース ファイル\CacooApi</Filter>
+    </ClInclude>
+    <ClInclude Include="CacooChatMessage.hpp">
+      <Filter>ソース ファイル\CacooApi</Filter>
+    </ClInclude>
+    <ClInclude Include="CacooFolder.hpp">
+      <Filter>ソース ファイル\CacooApi</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +158,6 @@
     <ClCompile Include="HttpsConnection.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="CacooApi.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="CacooServer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -151,6 +172,9 @@
     </ClCompile>
     <ClCompile Include="OAuthHandler.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CacooApi.cpp">
+      <Filter>ソース ファイル\CacooApi</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -59,6 +59,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <iostream>
 #include <sstream>
 #include <fstream>
 #include <map>

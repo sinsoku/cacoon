@@ -92,6 +92,12 @@
     <ClCompile Include="CacooUserTest.cpp">
       <Filter>ソース ファイル\CacooApi</Filter>
     </ClCompile>
+    <ClCompile Include="CacooCommentTest.cpp">
+      <Filter>ソース ファイル\CacooApi</Filter>
+    </ClCompile>
+    <ClCompile Include="CacooSheetTest.cpp">
+      <Filter>ソース ファイル\CacooApi</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

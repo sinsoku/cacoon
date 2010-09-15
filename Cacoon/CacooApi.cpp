@@ -88,11 +88,8 @@ std::vector<CacooFolder> CacooApi::parseFolders(const std::string& xmlData)
 
 CacooUser CacooApi::parseUser(const std::string& rawXmlData)
 {
-	std::map<std::string, std::string> xmlData;
 	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(rawXmlData);
-
-	// map<string, string>‚©‚çƒf[ƒ^‚ðÝ’è
-	CacooUser cu(*doc);
+	CacooUser cu( doc->RootElement() );
 
 	return cu;
 }

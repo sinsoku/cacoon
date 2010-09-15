@@ -9,9 +9,7 @@ private:
 	std::string imageUrl;
 public:
 	CacooUser() {}
-	CacooUser(TiXmlDocument& doc) {
-		TiXmlElement* root = doc.RootElement();
-
+	CacooUser(TiXmlElement* root) {
 		TiXmlElement* e = root->FirstChildElement();
 		name = e->GetText();
 

@@ -100,6 +100,15 @@ CacooUser CacooApi::parseUser(const std::string& rawXmlData)
 
 void CacooApi::parseXml(std::map<std::string, std::string>& xmlData, const std::string& rawXmlData)
 {
+	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(rawXmlData);
+
+	// XMLのrootを取得し、ツリー構造を読込み。
+	TiXmlElement* root = doc->RootElement();
+	parseSubItem(xmlData, root);
+}
+
+boost::shared_ptr<TiXmlDocument> CacooApi::parseXml(const std::string& rawXmlData)
+{
 	// テンプファイルに書込み
 	char xmltmpfile[] = "xmltmp.xml";
 	std::ofstream ofs(xmltmpfile);
@@ -107,15 +116,15 @@ void CacooApi::parseXml(std::map<std::string, std::string>& xmlData, const std::
 	ofs.close();
 
 	// TinyXmlで読込み
-	TiXmlDocument doc(xmltmpfile);
-	doc.LoadFile();
+	boost::shared_ptr<TiXmlDocument> doc;
+	doc = boost::shared_ptr<TiXmlDocument>( new TiXmlDocument(xmltmpfile) );
+	doc->LoadFile();
 
 	// テンプファイルの削除
 	remove(xmltmpfile);
 
-	// XMLのrootを取得し、ツリー構造を読込み。
-	TiXmlElement* root = doc.RootElement();
-	parseSubItem(xmlData, root);
+	// TinyXmlDocumentのポインタを返す
+	return doc;
 }
 
 void CacooApi::parseSubItem(std::map<std::string, std::string>& xmlData, TiXmlElement* e)

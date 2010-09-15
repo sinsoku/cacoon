@@ -29,5 +29,6 @@ public:
 	static std::vector<CacooFolder> parseFolders(const std::string& xmlData);
 	static CacooUser parseUser(const std::string& xmlData);
 	static void parseXml(std::map<std::string, std::string>&, const std::string& xmlData);
+	static boost::shared_ptr<TiXmlDocument> parseXml(const std::string& xmlData);
 	static void parseSubItem(std::map<std::string, std::string>&, TiXmlElement*);
 };

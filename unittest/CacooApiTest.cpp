@@ -19,6 +19,18 @@ TEST(CacooApi, parseXml)
 	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", xmldata["imageUrl"]);
 }
 
+TEST(CacooApi, parseXml_shared)
+{
+	char resXmlData[] =
+		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+		"<account>"
+		"  <name>yoko</name>"
+		"  <nickname>Yoko</nickname>"
+		"  <imageUrl>https://cacoo.com/account/yoko/image/32x32</imageUrl>"
+		"</account>";
+	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(resXmlData);
+}
+
 TEST(CacooApi, paserUser)
 {
 	char resXmlData[] =

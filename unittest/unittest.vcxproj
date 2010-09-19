@@ -95,6 +95,7 @@
     <ClCompile Include="..\Cacoon\SocketConnector.cpp" />
     <ClCompile Include="CacooApiTest.cpp" />
     <ClCompile Include="CacooCommentTest.cpp" />
+    <ClCompile Include="CacooDiagramTest.cpp" />
     <ClCompile Include="CacooSheetTest.cpp" />
     <ClCompile Include="CacooUserTest.cpp" />
     <ClCompile Include="ExceptionTest.cpp" />

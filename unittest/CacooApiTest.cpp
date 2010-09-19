@@ -86,4 +86,5 @@ TEST(CacooApi, account)
 
 	EXPECT_EQ("yoko", user.getName() );
 	EXPECT_EQ("Yoko", user.getNickName() );
-	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.getImageUrl() );}
+	EXPECT_EQ("https://cacoo.com/account/yoko/image/32x32", user.getImageUrl() );
+}

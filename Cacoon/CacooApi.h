@@ -1,83 +1,12 @@
 #pragma once
 #include "stdafx.h"
 
+#include "CacooChatMessage.hpp"
+#include "CacooDiagram.hpp"
+#include "CacooFolder.hpp"
 #include "CacooServer.h"
-
-class CacooUser
-{
-public:
-	std::string name;
-	std::string nickname;
-	std::string imageUrl;
-	void valueOf(std::map<std::string, std::string> xmlData) {
-		name     = xmlData["name"];
-		nickname = xmlData["nickname"];
-		imageUrl = xmlData["imageUrl"];
-	}
-};
-
-class CacooSheet
-{
-public:
-	std::string url;
-	std::string imageUrl;
-	std::string imageUrlForApi;
-	std::string uid;
-	std::string name;
-	std::string width;
-	std::string height;
-};
-
-class CacooComment
-{
-public:
-	CacooUser user;
-	std::string content;
-	time_t created;
-	time_t updated;
-};
-
-class CacooDiagram
-{
-public:
-	std::string url;
-	std::string imageUrl;
-	std::string imageUrlForApi;
-	std::string diagramId;
-	std::string title;
-	std::string description;
-	std::string security;
-	std::string ownerName;
-	std::string ownerNickName;
-	CacooUser owner;
-	bool editing;
-	bool own;
-	bool shared;
-	std::string folderName;
-	int sheetCount;
-	time_t created;
-	time_t updated;
-	std::vector<CacooSheet> sheets;
-	std::vector<CacooComment> comments;
-};
-
-class CacooChatMessage
-{
-public:
-	CacooUser user;
-	std::string content;
-	time_t created;
-};
-
-class CacooFolder
-{
-public:
-	int folderId;
-	std::string folderName;
-	std::string type;
-	time_t created;
-	time_t updated;
-};
+#include "CacooSheet.hpp"
+#include "CacooUser.hpp"
 
 class CacooApi
 {
@@ -100,5 +29,6 @@ public:
 	static std::vector<CacooFolder> parseFolders(const std::string& xmlData);
 	static CacooUser parseUser(const std::string& xmlData);
 	static void parseXml(std::map<std::string, std::string>&, const std::string& xmlData);
+	static boost::shared_ptr<TiXmlDocument> parseXml(const std::string& xmlData);
 	static void parseSubItem(std::map<std::string, std::string>&, TiXmlElement*);
 };

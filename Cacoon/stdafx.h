@@ -59,6 +59,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <iostream>
 #include <sstream>
 #include <fstream>
 #include <map>
@@ -69,6 +70,7 @@
 #else
 #pragma comment( lib, "tinyxml.lib" )
 #endif
+#include <boost/any.hpp>
 #include <boost/utility.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/tokenizer.hpp>

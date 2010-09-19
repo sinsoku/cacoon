@@ -109,10 +109,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CacooApi.h" />
+    <ClInclude Include="CacooChatMessage.hpp" />
+    <ClInclude Include="CacooComment.hpp" />
+    <ClInclude Include="CacooDiagram.hpp" />
+    <ClInclude Include="CacooFolder.hpp" />
     <ClInclude Include="Cacoon.h" />
     <ClInclude Include="CacoonDoc.h" />
     <ClInclude Include="CacoonView.h" />
     <ClInclude Include="CacooServer.h" />
+    <ClInclude Include="CacooSheet.hpp" />
+    <ClInclude Include="CacooUser.hpp" />
     <ClInclude Include="Connection.h" />
     <ClInclude Include="ConnectionImpl.h" />
     <ClInclude Include="Exceptions.h" />

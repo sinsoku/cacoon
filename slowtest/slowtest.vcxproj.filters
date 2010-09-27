@@ -68,5 +68,14 @@
     <ClCompile Include="SlowOAuthTest.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cacoon\OAuthToken.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\OAuthConsumer.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\OAuthHandler.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

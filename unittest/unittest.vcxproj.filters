@@ -101,6 +101,12 @@
     <ClCompile Include="CacooDiagramTest.cpp">
       <Filter>ソース ファイル\CacooApi</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cacoon\OAuthConsumer.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\OAuthToken.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

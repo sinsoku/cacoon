@@ -2,6 +2,15 @@
 #include "HttpClient.h"
 #include "OAuthHandler.h"
 
+// URL の設定、取得
+TEST( OAuthTest, OAuthUrl )
+{
+	OAuthHandler oauth( "", "" );
+	oauth.SetOAuthUrl( "cacoo.com", "/oauth/", true );
+
+	EXPECT_EQ( std::string( "https://cacoo.com/oauth/request_token" ), oauth.GetOAuthUrl( "request_token" ) );
+}
+
 // OAuth の署名作成
 TEST( OAuthTest, OAuthSignature )
 {
@@ -14,7 +23,7 @@ TEST( OAuthTest, OAuthSignature )
 	EXPECT_EQ( expect, signature );
 }
 
-// OpenSSL HMAC-SHA1 + Base64 関数のテスト
+// HMAC-SHA1 + Base64 関数のテスト
 TEST( OAuthTest, HmacSha1Base64Func )
 {
 	const std::string source = "012345";

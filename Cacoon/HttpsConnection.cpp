@@ -35,11 +35,14 @@ HttpsConnection::HttpsConnection( const std::string & host )
 
 HttpsConnection::~HttpsConnection()
 {
-	int n = SSL_shutdown( this->ssl );
-	if( n != 1 )
+	if( this->ssl->shutdown == SSL_RECEIVED_SHUTDOWN )
 	{
-		ERR_print_errors_fp( stderr );
-		throw CACOON_EXCEPTION( "SSL の終了に失敗" );
+		int n = SSL_shutdown( this->ssl );
+		if( n != 1 )
+		{
+			ERR_print_errors_fp( stderr );
+			throw CACOON_EXCEPTION( "SSL の終了に失敗" );
+		}
 	}
 	SSL_free( this->ssl );
 	SSL_CTX_free( this->ctx );
@@ -48,19 +51,17 @@ HttpsConnection::~HttpsConnection()
 
 Response HttpsConnection::Request( const std::string & method, const std::string & url, const HeaderMap & header )
 {
-	if( header.IsKeyExists( "Host" ) )
+	HeaderMap hm( header );
+	if( !hm.IsKeyExists( "Host" ) )
 	{
-		throw CACOON_EXCEPTION( "Host ヘッダは必要ありません。" );
+		hm.Insert( "Host", this->host );
 	}
-	if( header.IsKeyExists( "Connection" ) )
+	if( !hm.IsKeyExists( "Connection" ) )
 	{
-		throw CACOON_EXCEPTION( "Connection ヘッダは現時点では対応していません。" );
+		hm.Insert( "Connection", "close" );
 	}
 	std::ostringstream ossReq( std::ios::binary ); // \r\n を正しく処理するためバイナリとする。
-	ossReq << method << " " << url << " HTTP/1.1\r\n"
-		"Host: " << this->host << "\r\n"
-		"Connection: close\r\n"
-		<< header.ToString() << "\r\n" << '\0';
+	ossReq << method << " " << url << " HTTP/1.1\r\n" << hm.ToString() << "\r\n" << '\0';
 
 	this->makeSslConnection();
 

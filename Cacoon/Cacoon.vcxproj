@@ -128,7 +128,10 @@
     <ClInclude Include="HttpsConnection.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Method.h" />
+    <ClInclude Include="OAuthConsumer.h" />
     <ClInclude Include="OAuthHandler.h" />
+    <ClInclude Include="OAuthRequest.h" />
+    <ClInclude Include="OAuthToken.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Response.h" />
     <ClInclude Include="SocketConnector.h" />
@@ -150,7 +153,10 @@
     <ClCompile Include="HttpsConnection.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Method.cpp" />
+    <ClCompile Include="OAuthConsumer.cpp" />
     <ClCompile Include="OAuthHandler.cpp" />
+    <ClCompile Include="OAuthRequest.cpp" />
+    <ClCompile Include="OAuthToken.cpp" />
     <ClCompile Include="Response.cpp" />
     <ClCompile Include="SocketConnector.cpp" />
     <ClCompile Include="stdafx.cpp">

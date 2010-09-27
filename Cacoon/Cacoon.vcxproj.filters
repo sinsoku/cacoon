@@ -120,6 +120,15 @@
     <ClInclude Include="CacooFolder.hpp">
       <Filter>ソース ファイル\CacooApi</Filter>
     </ClInclude>
+    <ClInclude Include="OAuthToken.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="OAuthConsumer.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="OAuthRequest.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cacoon.cpp">
@@ -175,6 +184,15 @@
     </ClCompile>
     <ClCompile Include="CacooApi.cpp">
       <Filter>ソース ファイル\CacooApi</Filter>
+    </ClCompile>
+    <ClCompile Include="OAuthToken.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="OAuthConsumer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="OAuthRequest.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -9,17 +9,18 @@ public:
 	OAuthHandler( const std::string & consumerKey, const std::string & consumerSecret );
 
 	void SetOAuthUrl( const std::string & host, const std::string & root, bool secure );
-	std::string GetOAuthUrl( const std::string & url = "" );
+	std::string GetOAuthUrl( const std::string & endpoint = "" );
+
+	void SetAccessToken( const std::string & accessKey, const std::string & accessSecret );
+	OAuthToken GetAccessToken( const std::string & verifier );
 
 	std::string OAuthHost();
 	std::string OAuthRoot();
 	bool IsSecure();
 	
-	OAuthToken GetRequestToken();
-	OAuthToken GetAccessToken();
+	std::string GetAuthorizationUrl( const std::string & endpoint = "authorize" );
 
-	static std::string UrlEncode( const std::string & source );
-	static std::string HmacSha1WithBase64Encode( const std::string & source, const std::string & key );
+	std::string MakeAuthorizationHeader( const std::string & method, const std::string & url );
 
 private:
 
@@ -28,11 +29,12 @@ private:
 	bool secure;
 
 	OAuthConsumer consumer;
-	OAuthToken access;
 	OAuthToken request;
+	OAuthToken access;
 
-	static std::basic_string<unsigned char> stringToByteString( const std::string & source );
-	static std::string GenerateTimeStamp();
-	static std::string GenerateNonce( int length = 8 );
+	OAuthToken getRequestToken();
+
+	OAuthHandler( const OAuthHandler & );
+	OAuthHandler & operator = ( const OAuthHandler & );
 };
 

@@ -21,5 +21,21 @@ std::string OAuthToken::ToString()
 
 OAuthToken OAuthToken::FromString( const std::string & str )
 {
-	return OAuthToken();
+	typedef boost::char_separator<char> Separator;
+	typedef boost::tokenizer<boost::char_separator<char> > Tokenizer;
+
+	Separator andSeparator( "&" );
+	Tokenizer keyAndValue( str, andSeparator );
+
+	Separator equalSeparator( "=" );
+	std::map<std::string, std::string> m;
+	BOOST_FOREACH( const std::string & s, keyAndValue )
+	{
+		Tokenizer keyOrValue( s, equalSeparator );
+		Tokenizer::iterator it = keyOrValue.begin();
+
+		m[*it++] = *it;
+	}
+
+	return OAuthToken( m["oauth_token"], m["oauth_token_secret"] );
 }

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "HttpClient.h"
+#include "OAuthRequest.h"
 #include "OAuthHandler.h"
-
 // URL ÇÃê›íËÅAéÊìæ
 TEST( OAuthTest, OAuthUrl )
 {
@@ -18,7 +18,7 @@ TEST( OAuthTest, OAuthSignature )
 	const std::string key = "test_consumer_secret&";
 	const std::string expect = "1aLqCNebhFXNj3o8Nyf5RIGsHEk=";
 
-	const std::string signature = OAuthHandler::HmacSha1WithBase64Encode( source, key );
+	const std::string signature = OAuthRequest::HmacSha1WithBase64Encode( source, key );
 
 	EXPECT_EQ( expect, signature );
 }
@@ -30,7 +30,7 @@ TEST( OAuthTest, HmacSha1Base64Func )
 	const std::string key = "1";
 	const std::string expect = "uSAq0a63u1W41eTdCrgbywm5CU8=";
 
-	const std::string result = OAuthHandler::HmacSha1WithBase64Encode( source, key );
+	const std::string result = OAuthRequest::HmacSha1WithBase64Encode( source, key );
 
 	EXPECT_EQ( expect, result );
 }
@@ -41,7 +41,7 @@ TEST( OAuthTest, UrlEncoging )
 	const std::string source = "https://auth.login.yahoo.co.jp/oauth/v2/get_request_token";
 	const std::string expect = "https%3A%2F%2Fauth.login.yahoo.co.jp%2Foauth%2Fv2%2Fget_request_token";
 
-	const std::string urlEnc = OAuthHandler::UrlEncode( source );
+	const std::string urlEnc = OAuthRequest::UrlEncode( source );
 
 	EXPECT_EQ( expect, urlEnc );
 }

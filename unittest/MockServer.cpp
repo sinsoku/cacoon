@@ -13,7 +13,7 @@ MockServer::~MockServer(void)
 
 std::string MockServer::get(const std::string& uri)
 {
-	std::string base = "http://cacoo.com/api/v1/";
+	std::string base = "https://cacoo.com/api/v1/";
 
 	if (base + "users/yoko.xml" == uri) {
 		return MockServer::createUsers();

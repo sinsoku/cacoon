@@ -13,7 +13,7 @@ CacooApi::~CacooApi(void)
 
 std::vector<CacooDiagram> CacooApi::Diagrams()
 {
-	std::string url = "http://cacoo.com/api/v1/diagrams.xml";
+	std::string url = "https://cacoo.com/api/v1/diagrams.xml";
 	std::string resXmlData = cacooServer->get(url);
 	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(resXmlData);
 
@@ -23,7 +23,7 @@ std::vector<CacooDiagram> CacooApi::Diagrams()
 
 CacooDiagram CacooApi::Diagram(const std::string& diagramId)
 {
-	std::string url = "http://cacoo.com/api/v1/diagrams/" + diagramId + ".xml";
+	std::string url = "https://cacoo.com/api/v1/diagrams/" + diagramId + ".xml";
 	std::string resXmlData = cacooServer->get(url);
 	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(resXmlData);
 
@@ -37,7 +37,7 @@ void CacooApi::Image(const std::string& diagramId)
 
 std::vector<CacooChatMessage> CacooApi::ChatMessages(const std::string& diagramId)
 {
-	std::string url = "http://cacoo.com/api/v1/diagrams/" + diagramId + "/chat/messages.xml";
+	std::string url = "https://cacoo.com/api/v1/diagrams/" + diagramId + "/chat/messages.xml";
 	std::string resXmlData = cacooServer->get(url);
 	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(resXmlData);
 
@@ -47,7 +47,7 @@ std::vector<CacooChatMessage> CacooApi::ChatMessages(const std::string& diagramI
 
 std::vector<CacooFolder> CacooApi::Folders()
 {
-	std::string url = "http://cacoo.com/api/v1/folders.xml";
+	std::string url = "https://cacoo.com/api/v1/folders.xml";
 	std::string resXmlData = cacooServer->get(url);
 	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(resXmlData);
 
@@ -57,7 +57,7 @@ std::vector<CacooFolder> CacooApi::Folders()
 
 CacooUser CacooApi::Users(const std::string& name)
 {
-	std::string url = "http://cacoo.com/api/v1/users/" + name + ".xml";
+	std::string url = "https://cacoo.com/api/v1/users/" + name + ".xml";
 	std::string resXmlData = cacooServer->get(url);
 	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(resXmlData);
 
@@ -66,7 +66,7 @@ CacooUser CacooApi::Users(const std::string& name)
 
 CacooUser CacooApi::Account()
 {
-	std::string url = "http://cacoo.com/api/v1/account.xml";
+	std::string url = "https://cacoo.com/api/v1/account.xml";
 	std::string resXmlData = cacooServer->get(url);
 	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(resXmlData);
 

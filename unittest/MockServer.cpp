@@ -11,14 +11,16 @@ MockServer::~MockServer(void)
 {
 }
 
-std::string MockServer::get(const std::string& url)
+std::string MockServer::get(const std::string& uri)
 {
-	std::string baseUrl = "http://cacoo.com/api/v1/";
+	std::string base = "http://cacoo.com/api/v1/";
 
-	if (baseUrl + "users/yoko.xml" == url) {
+	if (base + "users/yoko.xml" == uri) {
 		return MockServer::createUsers();
-	} else if (baseUrl + "account.xml" == url) {
+	} else if (base + "account.xml" == uri) {
 		return MockServer::createAccount();
+	} else if (base + "diagrams/00e77f4dc9973517.xml" == uri) {
+		return MockServer::createDiagram();
 	}
 	return "";
 }
@@ -54,9 +56,6 @@ std::string MockServer::createDiagrams()
 		"      <created>Mon, 10 Aug 2009 17:00:00 +0900</created>"
 		"      <updated>Mon, 10 Aug 2009 17:00:00 +0900</updated>"
 		""
-		"    </diagram>"
-		"    <diagram>"
-		"      ..."
 		"    </diagram>"
 		"  </result>"
 		"  <count>2</count>"
@@ -105,9 +104,6 @@ std::string MockServer::createDiagram()
 		"      <height>100</height>"
 		""
 		"    </sheet>"
-		"    <sheet>"
-		"      ..."
-		"    </sheet>"
 		"  </sheets>"
 		""
 		"  <comments>"
@@ -120,9 +116,6 @@ std::string MockServer::createDiagram()
 		"      <content>comment 1</content>"
 		"      <created>Mon, 10 Aug 2009 17:00:00 +0900</created>"
 		"      <updated>Mon, 10 Aug 2009 17:00:00 +0900</updated>"
-		"    </comment>"
-		"    <comment>"
-		"      ..."
 		"    </comment>"
 		"  </comments>"
 		"</diagram>";
@@ -145,9 +138,6 @@ std::string MockServer::createChatMesseages()
 		"      <content>message 1</content>"
 		"      <created>Mon, 10 Aug 2009 17:00:00 +0900</created>"
 		"    </message>"
-		"    <message>"
-		"      ..."
-		"    </message>"
 		"  </result>"
 		"</messages>";
 
@@ -166,9 +156,6 @@ std::string MockServer::createFolders()
 		"      <type>normal</type>"
 		"      <created>Mon, 10 Aug 2009 17:00:00 +0900</created>"
 		"      <updated>Mon, 10 Aug 2009 17:00:00 +0900</updated>"
-		"    </folder>"
-		"    <folder>"
-		"      ..."
 		"    </folder>"
 		"  </result>"
 		"</folders>";

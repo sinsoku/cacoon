@@ -6,6 +6,7 @@
 TEST(CacooDiagram, init)
 {
 	char rawXmlData[] =
+		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
 		"<diagram>"
 		"  <url>https://cacoo.com/diagrams/00e77f4dc9973517</url>"
 		"  <imageUrl>https://cacoo.com/diagrams/00e77f4dc9973517.png</imageUrl>"

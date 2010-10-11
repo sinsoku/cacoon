@@ -23,7 +23,7 @@ std::vector<CacooDiagram> CacooApi::Diagrams()
 
 CacooDiagram CacooApi::Diagram(const std::string& diagramId)
 {
-	std::string url = "http://cacoo.com/api/v1/diagrams" + diagramId + ".xml";
+	std::string url = "http://cacoo.com/api/v1/diagrams/" + diagramId + ".xml";
 	std::string resXmlData = cacooServer->get(url);
 	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(resXmlData);
 
@@ -37,7 +37,7 @@ void CacooApi::Image(const std::string& diagramId)
 
 std::vector<CacooChatMessage> CacooApi::ChatMessages(const std::string& diagramId)
 {
-	std::string url = "http://cacoo.com/api/v1/diagrams" + diagramId + "/chat/messages.xml";
+	std::string url = "http://cacoo.com/api/v1/diagrams/" + diagramId + "/chat/messages.xml";
 	std::string resXmlData = cacooServer->get(url);
 	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(resXmlData);
 

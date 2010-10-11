@@ -56,12 +56,6 @@
     <ClCompile Include="..\Cacoon\CacooApi.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cacoon\CacooServer.cpp">
-      <Filter>参照 ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="MockServer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\Cacoon\HeaderMap.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
@@ -110,15 +104,18 @@
     <ClCompile Include="..\Cacoon\OAuthRequest.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cacoon\CacooHandler.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="MockHandler.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="MockServer.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\Cacoon\CacooUser.hpp">
@@ -132,6 +129,9 @@
     </ClInclude>
     <ClInclude Include="..\Cacoon\CacooSheet.hpp">
       <Filter>参照 ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="MockHandler.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

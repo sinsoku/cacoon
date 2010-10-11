@@ -1,11 +1,11 @@
 #pragma once
 #include "stdafx.h"
 
-class CacooServer
+class CacooHandler
 {
 public:
-	CacooServer(void);
-	virtual ~CacooServer(void);
+	CacooHandler(void);
+	virtual ~CacooHandler(void);
 	virtual std::string get(const std::string& url);
 };
 

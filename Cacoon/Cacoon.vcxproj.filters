@@ -87,9 +87,6 @@
     <ClInclude Include="HttpsConnection.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="CacooServer.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="HeaderMap.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -127,6 +124,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="OAuthRequest.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CacooHandler.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -167,9 +167,6 @@
     <ClCompile Include="HttpsConnection.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="CacooServer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="HeaderMap.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -192,6 +189,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="OAuthRequest.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CacooHandler.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

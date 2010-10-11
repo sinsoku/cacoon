@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CacooApi.h"
-#include "MockServer.h"
+#include "MockHandler.h"
 
 TEST(CacooApi, parseXml_shared)
 {
@@ -20,7 +20,7 @@ TEST(CacooApi, diagrams)
 
 TEST(CacooApi, diagram)
 {
-	boost::shared_ptr<CacooServer> mock(new MockServer());
+	boost::shared_ptr<CacooHandler> mock(new MockHandler());
 	CacooApi api(mock);
 	CacooDiagram diagram = api.Diagram("00e77f4dc9973517");
 
@@ -45,7 +45,7 @@ TEST(CacooApi, diagram)
 
 TEST(CacooApi, users) 
 {
-	boost::shared_ptr<CacooServer> mock(new MockServer());
+	boost::shared_ptr<CacooHandler> mock(new MockHandler());
 	CacooApi api(mock);
 	CacooUser user = api.Users("yoko");
 
@@ -68,7 +68,7 @@ TEST(CacooApi, folders)
 
 TEST(CacooApi, account)
 {
-	boost::shared_ptr<CacooServer> mock(new MockServer());
+	boost::shared_ptr<CacooHandler> mock(new MockHandler());
 	CacooApi api(mock);
 	CacooUser user = api.Account();
 

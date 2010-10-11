@@ -4,17 +4,17 @@
 #include "CacooChatMessage.hpp"
 #include "CacooDiagram.hpp"
 #include "CacooFolder.hpp"
-#include "CacooServer.h"
+#include "CacooHandler.h"
 #include "CacooSheet.hpp"
 #include "CacooUser.hpp"
 
 class CacooApi
 {
 private:
-	boost::shared_ptr<CacooServer> cacooServer;
+	boost::shared_ptr<CacooHandler> handler;
 
 public:
-	CacooApi(boost::shared_ptr<CacooServer>);
+	CacooApi(boost::shared_ptr<CacooHandler>);
 	~CacooApi(void);
 	std::vector<CacooDiagram> Diagrams();
 	CacooDiagram Diagram(const std::string& diagramId);

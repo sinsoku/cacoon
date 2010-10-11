@@ -1,31 +1,31 @@
 #include "StdAfx.h"
-#include "MockServer.h"
+#include "MockHandler.h"
 
 
-MockServer::MockServer(void)
+MockHandler::MockHandler(void)
 {
 }
 
 
-MockServer::~MockServer(void)
+MockHandler::~MockHandler(void)
 {
 }
 
-std::string MockServer::get(const std::string& uri)
+std::string MockHandler::get(const std::string& uri)
 {
 	std::string base = "https://cacoo.com/api/v1/";
 
 	if (base + "users/yoko.xml" == uri) {
-		return MockServer::createUsers();
+		return MockHandler::createUsers();
 	} else if (base + "account.xml" == uri) {
-		return MockServer::createAccount();
+		return MockHandler::createAccount();
 	} else if (base + "diagrams/00e77f4dc9973517.xml" == uri) {
-		return MockServer::createDiagram();
+		return MockHandler::createDiagram();
 	}
 	return "";
 }
 
-std::string MockServer::createDiagrams()
+std::string MockHandler::createDiagrams()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -65,7 +65,7 @@ std::string MockServer::createDiagrams()
 	return resXmlData;
 }
 
-std::string MockServer::createDiagram()
+std::string MockHandler::createDiagram()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -123,7 +123,7 @@ std::string MockServer::createDiagram()
 	return resXmlData;
 }
 
-std::string MockServer::createChatMesseages()
+std::string MockHandler::createChatMesseages()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -144,7 +144,7 @@ std::string MockServer::createChatMesseages()
 	return resXmlData;
 }
 
-std::string MockServer::createFolders()
+std::string MockHandler::createFolders()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -163,7 +163,7 @@ std::string MockServer::createFolders()
 	return resXmlData;
 }
 
-std::string MockServer::createUsers()
+std::string MockHandler::createUsers()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -176,7 +176,7 @@ std::string MockServer::createUsers()
 	return resXmlData;
 }
 
-std::string MockServer::createAccount()
+std::string MockHandler::createAccount()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"

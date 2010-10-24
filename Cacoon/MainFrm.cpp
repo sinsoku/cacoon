@@ -58,15 +58,16 @@ int MainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CFrameWndEx::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// タスクトレイにアイコンを表示
-	m_stNtfyIcon.cbSize = sizeof( NOTIFYICONDATA );	//構造体のサイズです。
+	m_stNtfyIcon.cbSize = NOTIFYICONDATA_V2_SIZE;	//構造体のサイズです。
 	m_stNtfyIcon.uID = 0;	//アイコンの識別ナンバーです。
 	m_stNtfyIcon.hWnd = m_hWnd;	//メッセージを送らせるウィンドウのハンドルです。
-	m_stNtfyIcon.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP;	//各種設定です。
+	m_stNtfyIcon.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP | NIF_INFO;	//各種設定です。
 	m_stNtfyIcon.hIcon = AfxGetApp()->LoadIconW( IDR_MAINFRAME );	//アプリケーションのアイコンです。
 	m_stNtfyIcon.uCallbackMessage = WM_USER_NTFYICON;	//送ってもらうメッセージです。
 	lstrcpy( m_stNtfyIcon.szTip, _T( "Cacoon" ) );	//チップの文字列です。
 	::Shell_NotifyIconW( NIM_ADD, &m_stNtfyIcon );	//タスクトレイに表示します。
+	m_stNtfyIcon.dwInfoFlags = NIIF_INFO;
+
 
 	// ポップアップメニューの構築
 	m_TaskTrayMenu.CreatePopupMenu();
@@ -354,6 +355,11 @@ LRESULT MainFrame::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 
 		if( lParam == WM_LBUTTONDOWN ) {
 			// 左クリックの処理
+			m_stNtfyIcon.dwInfoFlags = NIIF_INFO ;
+			::lstrcpy( m_stNtfyIcon.szInfoTitle , L"Cacoon") ;
+			::lstrcpy( m_stNtfyIcon.szInfo , L"DiagramTitle\n2010/10/25 00:00:00 UserName") ;
+			m_stNtfyIcon.uTimeout = 10 ;
+			::Shell_NotifyIcon( NIM_MODIFY , &m_stNtfyIcon ) ;
 			;
 		} else if( lParam == WM_RBUTTONDOWN ) {
 			// 右クリックの処理

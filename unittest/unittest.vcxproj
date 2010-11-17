@@ -81,7 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Cacoon\CacooApi.cpp" />
-    <ClCompile Include="..\Cacoon\CacooServer.cpp" />
+    <ClCompile Include="..\Cacoon\CacooHandler.cpp" />
     <ClCompile Include="..\Cacoon\Connection.cpp" />
     <ClCompile Include="..\Cacoon\ConnectionImpl.cpp" />
     <ClCompile Include="..\Cacoon\Exceptions.cpp" />
@@ -107,7 +107,7 @@
     <ClCompile Include="HttpsTest.cpp" />
     <ClCompile Include="HttpTest.cpp" />
     <ClCompile Include="MockConnection.cpp" />
-    <ClCompile Include="MockServer.cpp" />
+    <ClCompile Include="MockHandler.cpp" />
     <ClCompile Include="OAuthTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -121,7 +121,7 @@
     <ClInclude Include="..\Cacoon\CacooDiagram.hpp" />
     <ClInclude Include="..\Cacoon\CacooSheet.hpp" />
     <ClInclude Include="..\Cacoon\CacooUser.hpp" />
-    <ClInclude Include="MockServer.h" />
+    <ClInclude Include="MockHandler.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

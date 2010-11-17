@@ -113,10 +113,10 @@
     <ClInclude Include="CacooComment.hpp" />
     <ClInclude Include="CacooDiagram.hpp" />
     <ClInclude Include="CacooFolder.hpp" />
+    <ClInclude Include="CacooHandler.h" />
     <ClInclude Include="Cacoon.h" />
     <ClInclude Include="CacoonDoc.h" />
     <ClInclude Include="CacoonView.h" />
-    <ClInclude Include="CacooServer.h" />
     <ClInclude Include="CacooSheet.hpp" />
     <ClInclude Include="CacooUser.hpp" />
     <ClInclude Include="Connection.h" />
@@ -140,10 +140,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CacooApi.cpp" />
+    <ClCompile Include="CacooHandler.cpp" />
     <ClCompile Include="Cacoon.cpp" />
     <ClCompile Include="CacoonDoc.cpp" />
     <ClCompile Include="CacoonView.cpp" />
-    <ClCompile Include="CacooServer.cpp" />
     <ClCompile Include="Connection.cpp" />
     <ClCompile Include="ConnectionImpl.cpp" />
     <ClCompile Include="Exceptions.cpp" />

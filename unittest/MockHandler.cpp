@@ -1,29 +1,31 @@
 #include "StdAfx.h"
-#include "MockServer.h"
+#include "MockHandler.h"
 
 
-MockServer::MockServer(void)
+MockHandler::MockHandler(void)
 {
 }
 
 
-MockServer::~MockServer(void)
+MockHandler::~MockHandler(void)
 {
 }
 
-std::string MockServer::get(const std::string& url)
+std::string MockHandler::get(const std::string& uri)
 {
-	std::string baseUrl = "http://cacoo.com/api/v1/";
+	std::string base = "https://cacoo.com/api/v1/";
 
-	if (baseUrl + "users/yoko.xml" == url) {
-		return MockServer::createUsers();
-	} else if (baseUrl + "account.xml" == url) {
-		return MockServer::createAccount();
+	if (base + "users/yoko.xml" == uri) {
+		return MockHandler::createUsers();
+	} else if (base + "account.xml" == uri) {
+		return MockHandler::createAccount();
+	} else if (base + "diagrams/00e77f4dc9973517.xml" == uri) {
+		return MockHandler::createDiagram();
 	}
 	return "";
 }
 
-std::string MockServer::createDiagrams()
+std::string MockHandler::createDiagrams()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -55,9 +57,6 @@ std::string MockServer::createDiagrams()
 		"      <updated>Mon, 10 Aug 2009 17:00:00 +0900</updated>"
 		""
 		"    </diagram>"
-		"    <diagram>"
-		"      ..."
-		"    </diagram>"
 		"  </result>"
 		"  <count>2</count>"
 		""
@@ -66,7 +65,7 @@ std::string MockServer::createDiagrams()
 	return resXmlData;
 }
 
-std::string MockServer::createDiagram()
+std::string MockHandler::createDiagram()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -105,9 +104,6 @@ std::string MockServer::createDiagram()
 		"      <height>100</height>"
 		""
 		"    </sheet>"
-		"    <sheet>"
-		"      ..."
-		"    </sheet>"
 		"  </sheets>"
 		""
 		"  <comments>"
@@ -121,16 +117,13 @@ std::string MockServer::createDiagram()
 		"      <created>Mon, 10 Aug 2009 17:00:00 +0900</created>"
 		"      <updated>Mon, 10 Aug 2009 17:00:00 +0900</updated>"
 		"    </comment>"
-		"    <comment>"
-		"      ..."
-		"    </comment>"
 		"  </comments>"
 		"</diagram>";
 
 	return resXmlData;
 }
 
-std::string MockServer::createChatMesseages()
+std::string MockHandler::createChatMesseages()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -145,16 +138,13 @@ std::string MockServer::createChatMesseages()
 		"      <content>message 1</content>"
 		"      <created>Mon, 10 Aug 2009 17:00:00 +0900</created>"
 		"    </message>"
-		"    <message>"
-		"      ..."
-		"    </message>"
 		"  </result>"
 		"</messages>";
 
 	return resXmlData;
 }
 
-std::string MockServer::createFolders()
+std::string MockHandler::createFolders()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -167,16 +157,13 @@ std::string MockServer::createFolders()
 		"      <created>Mon, 10 Aug 2009 17:00:00 +0900</created>"
 		"      <updated>Mon, 10 Aug 2009 17:00:00 +0900</updated>"
 		"    </folder>"
-		"    <folder>"
-		"      ..."
-		"    </folder>"
 		"  </result>"
 		"</folders>";
 
 	return resXmlData;
 }
 
-std::string MockServer::createUsers()
+std::string MockHandler::createUsers()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -189,7 +176,7 @@ std::string MockServer::createUsers()
 	return resXmlData;
 }
 
-std::string MockServer::createAccount()
+std::string MockHandler::createAccount()
 {
 	char resXmlData[] =
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"

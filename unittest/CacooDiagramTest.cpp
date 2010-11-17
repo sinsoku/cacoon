@@ -6,6 +6,7 @@
 TEST(CacooDiagram, init)
 {
 	char rawXmlData[] =
+		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
 		"<diagram>"
 		"  <url>https://cacoo.com/diagrams/00e77f4dc9973517</url>"
 		"  <imageUrl>https://cacoo.com/diagrams/00e77f4dc9973517.png</imageUrl>"
@@ -47,4 +48,33 @@ TEST(CacooDiagram, init)
 	EXPECT_EQ(17,   cal2->tm_hour);
 	EXPECT_EQ(0,    cal2->tm_min);
 	EXPECT_EQ(0,    cal2->tm_sec);
+}
+
+TEST(CacooDiagram, nullerror)
+{
+	char rawXmlData[] =
+		"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+		"<diagram>"
+		"  <url>https://cacoo.com/diagrams/00e77f4dc9973517</url>"
+		"  <imageUrl>https://cacoo.com/diagrams/00e77f4dc9973517.png</imageUrl>"
+		"  <imageUrlForApi>https://cacoo.com/api/v1/diagrams/00e77f4dc9973517.png</imageUrlForApi>"
+		"  <diagramId>00e77f4dc9973517</diagramId>"
+		"  <title></title>"
+		"  <security>url</security>"
+		"  <ownerName>yoko</ownerName>"
+		"  <ownerNickname>Yoko</ownerNickname>"
+		"  <owner>"
+		"    <name>yoko</name>"
+		"    <nickname>Yoko</nickname>"
+		"    <imageUrl>https://cacoo.com/account/yoko/image/32x32</imageUrl>"
+		"  </owner>"
+		"  <editing>false</editing>"
+		"  <own>true</own>"
+		"  <shared>true</shared>"
+		"  <sheetCount>0</sheetCount>"
+		"  <created>Mon, 10 Aug 2009 17:00:00 +0900</created>"
+		"  <updated>Mon, 10 Aug 2009 17:00:00 +0900</updated>"
+		"</diagram>";
+	boost::shared_ptr<TiXmlDocument> doc = CacooApi::parseXml(rawXmlData);
+	CacooDiagram actual( doc->RootElement() );
 }

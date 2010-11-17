@@ -90,13 +90,7 @@
 #pragma comment( lib, "ws2_32.lib" )
 #pragma comment( lib, "Crypt32.lib" )
 
-#ifdef _DEBUG
-#pragma comment( lib, "libeay32d.lib" )
-#pragma comment( lib, "ssleay32d.lib" )
-#elif
 #pragma comment( lib, "libeay32.lib" )
 #pragma comment( lib, "ssleay32.lib" )
-#endif
-
 
 #include "Exceptions.h"

@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "HttpClient.h"
 #include "OAuthRequest.h"
-#include "OAuthHandler.h"
+#include "OAuthUrlMaker.h"
 // URL ‚Ìİ’èAæ“¾
 TEST( OAuthTest, OAuthUrl )
 {
-	OAuthHandler oauth( "", "" );
+	OAuthUrlMaker oauth( "", "" );
 	oauth.SetOAuthUrl( "cacoo.com", "/oauth/", true );
 
 	EXPECT_EQ( std::string( "https://cacoo.com/oauth/request_token" ), oauth.GetOAuthUrl( "request_token" ) );

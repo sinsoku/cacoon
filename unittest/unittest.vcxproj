@@ -94,6 +94,7 @@
     <ClCompile Include="..\Cacoon\OAuthHandler.cpp" />
     <ClCompile Include="..\Cacoon\OAuthRequest.cpp" />
     <ClCompile Include="..\Cacoon\OAuthToken.cpp" />
+    <ClCompile Include="..\Cacoon\OAuthUrlMaker.cpp" />
     <ClCompile Include="..\Cacoon\Response.cpp" />
     <ClCompile Include="..\Cacoon\SocketConnector.cpp" />
     <ClCompile Include="CacooApiTest.cpp" />

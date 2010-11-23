@@ -15,8 +15,13 @@ TEST( HttpsConnectionTest, MultiRequest )
 			Response res1st = conn.Request( Method::Get, url );
 			Response res2nd = conn.Request( Method::Get, url );
 
+			conn = HttpClient::CreateHttpsConnection( host );
+
+			Response res3rd = conn.Request( Method::Get, url );
+
 			EXPECT_EQ( 200, res1st.StatusCode() );
 			EXPECT_EQ( 200, res2nd.StatusCode() );
+			EXPECT_EQ( 200, res3rd.StatusCode() );
 		}
 		catch( const CacoonException & ex )
 		{

@@ -16,6 +16,11 @@ TEST( HttpConnectionTest, MultiRequest )
 
 			EXPECT_EQ( 200, res1st.StatusCode() );
 			EXPECT_EQ( 200, res2nd.StatusCode() );
+
+			Connection c2 = c;
+			Response res3rd = c2.Request( Method::Get, "/" );
+
+			EXPECT_EQ( 200, res3rd.StatusCode() );
 		}
 		catch( const CacoonException & ex )
 		{

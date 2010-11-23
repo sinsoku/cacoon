@@ -70,7 +70,7 @@ std::string OAuthRequest::ToHeaderString()
 	it++;
 	for( ; it != this->params.end(); it++ )
 	{
-		oss << "," << it->first << "=\"" << it->second << "\"";
+		oss << ", " << it->first << "=\"" << OAuthRequest::UrlEncode( it->second ) << "\"";
 	}
 	return oss.str();
 }
@@ -85,7 +85,7 @@ std::string OAuthRequest::generateTimeStamp()
 std::string OAuthRequest::generateNonce( int length )
 {
 	static time_t t = time( NULL );
-	srand( t++ );
+	srand( (unsigned int)t++ );
 	std::vector<char> v;
 	for( int i=0; i<length; i++ )
 	{
@@ -113,10 +113,10 @@ std::string OAuthRequest::UrlEncode( const std::string & source )
 		{	// [0-9], [A-Z], [a-z]、[.], [-], [_] のときはそのまま出力
 			oss << c;
 		}
-		else if( c == WhiteSpace )
-		{	// 半角スペースは + に変換
-			oss << '+';
-		}
+		//else if( c == WhiteSpace )
+		//{	// 半角スペースは + に変換
+		//	oss << '+';
+		//}
 		else
 		{	// そのほかは [%16進] 出力
 			oss << '%' << std::hex << std::uppercase << (int)c;

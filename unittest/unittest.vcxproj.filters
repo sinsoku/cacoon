@@ -77,9 +77,6 @@
     <ClCompile Include="OAuthTest.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cacoon\OAuthHandler.cpp">
-      <Filter>参照 ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="CacooApiTest.cpp">
       <Filter>ソース ファイル\CacooApi</Filter>
     </ClCompile>
@@ -109,6 +106,12 @@
     </ClCompile>
     <ClCompile Include="MockHandler.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\OAuthUrlMaker.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\OAuthHandler.cpp">
+      <Filter>参照 ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

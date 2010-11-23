@@ -18,10 +18,10 @@ std::string OAuthHandler::get( const std::string & url )
 	int rootLength = url.substr( prefixLength ).find( "/" );
 	std::string root = url.substr( prefixLength, rootLength );	// "https://(xxxx)/**" ‚Ì (xxxx) ‚ð’Šo
 	std::string endpoint = url.substr( prefixLength + rootLength );	// ã‚Ì (xxxx) ˆÈ~‚ð’Šo
-	
-	static std::string authHeader = this->oauthUrlMaker.MakeAuthorizationHeader( "GET", url );
 
 	Connection conn = HttpClient::CreateHttpsConnection( root );
+	
+	std::string authHeader = this->oauthUrlMaker.MakeAuthorizationHeader( "GET", url );
 	Response resp = conn.Request( "GET", endpoint, HeaderMap( authHeader ) );
 
 	if( resp.StatusCode() != 200 )

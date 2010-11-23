@@ -32,7 +32,6 @@ Response::Response( const std::string & rawResponse )
 	this->body = rawResponse.substr( headerOffset+4 );
 }
 
-
 // ƒQƒbƒ^[
 int Response::StatusCode()
 {

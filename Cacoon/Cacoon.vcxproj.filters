@@ -19,6 +19,12 @@
     <Filter Include="ソース ファイル\CacooApi">
       <UniqueIdentifier>{4a5c3ffc-efc2-45ff-8c34-2c8fc81c58f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\OAuth">
+      <UniqueIdentifier>{b7d87441-154e-4962-8953-08665a1126b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\OAuth">
+      <UniqueIdentifier>{612874be-5cd3-4bd4-8855-bb8b9fa0e640}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -93,9 +99,6 @@
     <ClInclude Include="SocketConnector.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="OAuthHandler.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CacooApi.h">
       <Filter>ヘッダー ファイル\CacooApi</Filter>
     </ClInclude>
@@ -117,17 +120,23 @@
     <ClInclude Include="CacooFolder.hpp">
       <Filter>ソース ファイル\CacooApi</Filter>
     </ClInclude>
-    <ClInclude Include="OAuthToken.h">
+    <ClInclude Include="CacooHandler.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="OAuthConsumer.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\OAuth</Filter>
+    </ClInclude>
+    <ClInclude Include="OAuthUrlMaker.h">
+      <Filter>ヘッダー ファイル\OAuth</Filter>
     </ClInclude>
     <ClInclude Include="OAuthRequest.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\OAuth</Filter>
     </ClInclude>
-    <ClInclude Include="CacooHandler.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="OAuthToken.h">
+      <Filter>ヘッダー ファイル\OAuth</Filter>
+    </ClInclude>
+    <ClInclude Include="OAuthHandler.h">
+      <Filter>ヘッダー ファイル\OAuth</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -176,23 +185,26 @@
     <ClCompile Include="SocketConnector.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="OAuthHandler.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="CacooApi.cpp">
       <Filter>ソース ファイル\CacooApi</Filter>
     </ClCompile>
-    <ClCompile Include="OAuthToken.cpp">
+    <ClCompile Include="CacooHandler.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="OAuthConsumer.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\OAuth</Filter>
+    </ClCompile>
+    <ClCompile Include="OAuthUrlMaker.cpp">
+      <Filter>ソース ファイル\OAuth</Filter>
     </ClCompile>
     <ClCompile Include="OAuthRequest.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\OAuth</Filter>
     </ClCompile>
-    <ClCompile Include="CacooHandler.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="OAuthToken.cpp">
+      <Filter>ソース ファイル\OAuth</Filter>
+    </ClCompile>
+    <ClCompile Include="OAuthHandler.cpp">
+      <Filter>ソース ファイル\OAuth</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

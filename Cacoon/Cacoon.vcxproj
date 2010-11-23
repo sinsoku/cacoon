@@ -132,6 +132,7 @@
     <ClInclude Include="OAuthHandler.h" />
     <ClInclude Include="OAuthRequest.h" />
     <ClInclude Include="OAuthToken.h" />
+    <ClInclude Include="OAuthUrlMaker.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Response.h" />
     <ClInclude Include="SocketConnector.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="OAuthHandler.cpp" />
     <ClCompile Include="OAuthRequest.cpp" />
     <ClCompile Include="OAuthToken.cpp" />
+    <ClCompile Include="OAuthUrlMaker.cpp" />
     <ClCompile Include="Response.cpp" />
     <ClCompile Include="SocketConnector.cpp" />
     <ClCompile Include="stdafx.cpp">

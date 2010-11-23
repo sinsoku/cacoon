@@ -74,10 +74,16 @@
     <ClCompile Include="..\Cacoon\OAuthConsumer.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\Cacoon\OAuthRequest.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\OAuthUrlMaker.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="..\Cacoon\OAuthHandler.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\Cacoon\OAuthRequest.cpp">
+    <ClCompile Include="..\Cacoon\CacooHandler.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
   </ItemGroup>

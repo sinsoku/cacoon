@@ -82,6 +82,7 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Cacoon\CacooHandler.cpp" />
     <ClCompile Include="..\Cacoon\Connection.cpp" />
     <ClCompile Include="..\Cacoon\ConnectionImpl.cpp" />
     <ClCompile Include="..\Cacoon\Exceptions.cpp" />
@@ -94,6 +95,7 @@
     <ClCompile Include="..\Cacoon\OAuthHandler.cpp" />
     <ClCompile Include="..\Cacoon\OAuthRequest.cpp" />
     <ClCompile Include="..\Cacoon\OAuthToken.cpp" />
+    <ClCompile Include="..\Cacoon\OAuthUrlMaker.cpp" />
     <ClCompile Include="..\Cacoon\Response.cpp" />
     <ClCompile Include="..\Cacoon\SocketConnector.cpp" />
     <ClCompile Include="SlowHttpsTest.cpp" />

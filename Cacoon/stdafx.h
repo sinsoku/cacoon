@@ -78,6 +78,7 @@
 #include <boost/foreach.hpp>
 #include <boost/format.hpp>
 #include <boost/algorithm/string.hpp>
+#include <boost/scoped_array.hpp>
 
 #include <openssl/crypto.h>
 #include <openssl/ssl.h>

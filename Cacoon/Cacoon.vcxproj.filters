@@ -25,6 +25,12 @@
     <Filter Include="ヘッダー ファイル\OAuth">
       <UniqueIdentifier>{612874be-5cd3-4bd4-8855-bb8b9fa0e640}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\HttpClient">
+      <UniqueIdentifier>{ea8e3f02-5275-41aa-a526-3311c8e84408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\HttpClient">
+      <UniqueIdentifier>{89d6ae8b-5e83-4a2e-98b4-d1866f0db8d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -72,33 +78,6 @@
     <ClInclude Include="Exceptions.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Response.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Connection.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="HttpClient.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ConnectionImpl.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Method.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="HttpConnection.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="HttpsConnection.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="HeaderMap.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SocketConnector.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CacooApi.h">
       <Filter>ヘッダー ファイル\CacooApi</Filter>
     </ClInclude>
@@ -138,6 +117,36 @@
     <ClInclude Include="OAuthHandler.h">
       <Filter>ヘッダー ファイル\OAuth</Filter>
     </ClInclude>
+    <ClInclude Include="HeaderMap.h">
+      <Filter>ヘッダー ファイル\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionImpl.h">
+      <Filter>ヘッダー ファイル\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection.h">
+      <Filter>ヘッダー ファイル\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpClient.h">
+      <Filter>ヘッダー ファイル\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpConnection.h">
+      <Filter>ヘッダー ファイル\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="HttpsConnection.h">
+      <Filter>ヘッダー ファイル\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="Method.h">
+      <Filter>ヘッダー ファイル\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="Response.h">
+      <Filter>ヘッダー ファイル\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketConnector.h">
+      <Filter>ヘッダー ファイル\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="Encoding.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cacoon.cpp">
@@ -156,33 +165,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Exceptions.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Response.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Connection.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="HttpClient.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Method.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="HttpConnection.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="HttpsConnection.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="HeaderMap.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ConnectionImpl.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SocketConnector.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="CacooApi.cpp">
@@ -205,6 +187,36 @@
     </ClCompile>
     <ClCompile Include="OAuthHandler.cpp">
       <Filter>ソース ファイル\OAuth</Filter>
+    </ClCompile>
+    <ClCompile Include="HeaderMap.cpp">
+      <Filter>ソース ファイル\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionImpl.cpp">
+      <Filter>ソース ファイル\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Connection.cpp">
+      <Filter>ソース ファイル\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpClient.cpp">
+      <Filter>ソース ファイル\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpConnection.cpp">
+      <Filter>ソース ファイル\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpsConnection.cpp">
+      <Filter>ソース ファイル\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Method.cpp">
+      <Filter>ソース ファイル\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Response.cpp">
+      <Filter>ソース ファイル\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketConnector.cpp">
+      <Filter>ソース ファイル\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Encoding.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

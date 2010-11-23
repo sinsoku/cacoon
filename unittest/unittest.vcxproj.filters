@@ -113,6 +113,12 @@
     <ClCompile Include="..\Cacoon\OAuthHandler.cpp">
       <Filter>参照 ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="EncodingTest.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Cacoon\Encoding.cpp">
+      <Filter>参照 ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

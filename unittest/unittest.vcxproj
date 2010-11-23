@@ -84,6 +84,7 @@
     <ClCompile Include="..\Cacoon\CacooHandler.cpp" />
     <ClCompile Include="..\Cacoon\Connection.cpp" />
     <ClCompile Include="..\Cacoon\ConnectionImpl.cpp" />
+    <ClCompile Include="..\Cacoon\Encoding.cpp" />
     <ClCompile Include="..\Cacoon\Exceptions.cpp" />
     <ClCompile Include="..\Cacoon\HeaderMap.cpp" />
     <ClCompile Include="..\Cacoon\HttpClient.cpp" />
@@ -102,6 +103,7 @@
     <ClCompile Include="CacooDiagramTest.cpp" />
     <ClCompile Include="CacooSheetTest.cpp" />
     <ClCompile Include="CacooUserTest.cpp" />
+    <ClCompile Include="EncodingTest.cpp" />
     <ClCompile Include="ExceptionTest.cpp" />
     <ClCompile Include="GTestSample.cpp" />
     <ClCompile Include="HeaderMapTest.cpp" />

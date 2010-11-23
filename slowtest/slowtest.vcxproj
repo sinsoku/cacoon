@@ -85,6 +85,7 @@
     <ClCompile Include="..\Cacoon\CacooHandler.cpp" />
     <ClCompile Include="..\Cacoon\Connection.cpp" />
     <ClCompile Include="..\Cacoon\ConnectionImpl.cpp" />
+    <ClCompile Include="..\Cacoon\Encoding.cpp" />
     <ClCompile Include="..\Cacoon\Exceptions.cpp" />
     <ClCompile Include="..\Cacoon\HeaderMap.cpp" />
     <ClCompile Include="..\Cacoon\HttpClient.cpp" />

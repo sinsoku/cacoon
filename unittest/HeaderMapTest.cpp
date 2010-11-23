@@ -1,6 +1,23 @@
 #include "stdafx.h"
 #include "HeaderMap.h"
 
+// Update のテスト
+TEST( HeaderMapTest, HeaderMapUpdate )
+{
+	HeaderMap hm;
+	hm["1"] = "one";
+	hm["2"] = "two";
+
+	HeaderMap hm2;
+	hm2["1"] = "uno";
+	hm2["3"] = "tre";
+
+	hm.Update( hm2 );
+
+	EXPECT_TRUE( hm.IsKeyExists( "3" ) );
+	EXPECT_STREQ( "uno", hm["1"].c_str() );
+}
+
 // const イテレータのテスト
 TEST( HeaderMapTest, HeaderMapConstIterator )
 {

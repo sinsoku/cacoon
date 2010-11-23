@@ -9,6 +9,9 @@ class HttpClient
 public:
 	static Connection CreateHttpConnection( const std::string & host );
 	static Connection CreateHttpsConnection( const std::string & host );
+
+	// URL に簡単にアクセスするための静的メソッド
+	static Response Connect( const std::string & method, const std::string & url, const HeaderMap & header = HeaderMap() );
 	
 	~HttpClient();
 

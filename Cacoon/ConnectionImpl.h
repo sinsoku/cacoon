@@ -1,5 +1,7 @@
 #pragma once
 #include "Response.h"
+#include "SocketConnector.h"
+
 class HeaderMap;
 // Connection の内部実装のための抽象クラス
 // Http と Https の違いを吸収するためのインターフェースとしてふるまう
@@ -7,17 +9,22 @@ class ConnectionImpl
 {
 public:
 
-	virtual Response Request( const std::string & method, const std::string & url, const HeaderMap & header ) = 0;
-	virtual ~ConnectionImpl() {}
+	explicit ConnectionImpl( const std::string & host );
+	
+	virtual Response Request( const std::string & method, const std::string & url, const HeaderMap & header );
 
 protected:
 
-	// ソケットの作成
-	static SOCKET MakeSocket();
+	const std::string HostName;
 
-	// アドレスファミリーの作成
-	static SOCKADDR_IN MakeAddressFamily( SOCKET sock, const std::string & host, int port );
+private:
 
-	// 接続の確立
-	static void Connect( SOCKET sock, SOCKADDR_IN addr );
+	virtual void makeConnection() = 0;
+	virtual void sendRequest( const std::string & request ) = 0;
+	virtual int receive( char * buf, int bufferSize ) = 0;
+
+	// コピー禁止
+	ConnectionImpl( const ConnectionImpl & );
+	ConnectionImpl & operator = ( const ConnectionImpl & );
+
 };

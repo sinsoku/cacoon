@@ -30,3 +30,18 @@ Connection HttpClient::CreateHttpsConnection( const std::string & host )
 {
 	return Connection( new HttpsConnection( host ) );
 }
+
+// URL に簡単にアクセスするための静的メソッド
+Response HttpClient::Connect( const std::string & method, const std::string & url, const HeaderMap & header )
+{
+	int prefixLength = url.find( "://" ) + 3;	// "https://" の長さ
+	int rootLength = url.substr( prefixLength ).find( "/" );
+	std::string root = url.substr( prefixLength, rootLength );	// "https://(xxxx)/**" の (xxxx) を抽出
+	std::string endpoint = url.substr( prefixLength + rootLength );	// 上の (xxxx) 以降を抽出
+
+	Connection conn = ( url.substr( 0, 5 ) == "https" )
+		? HttpClient::CreateHttpsConnection( root )
+		: HttpClient::CreateHttpConnection( root );
+
+	return conn.Request( "GET", endpoint, header );
+}

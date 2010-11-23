@@ -1,6 +1,13 @@
 #include "stdafx.h"
 #include "HttpClient.h"
- 
+
+// 簡易接続のテスト
+TEST( HttpsConnectionTest, EasyRequest )
+{
+	Response resp = HttpClient::Connect( Method::Get, "https://cohama.backlog.jp/LoginDisplay.action;jsessionid=E3E47A1EE360473E09AAB64426083937.h" );
+	EXPECT_EQ( 200, resp.StatusCode() );
+}
+
 // HTTPS の複数回リクエスト
 TEST( HttpsConnectionTest, MultiRequest )
 {

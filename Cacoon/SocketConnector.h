@@ -15,6 +15,11 @@ public:
 	SOCKET Socket();
 
 private:
+
+	// ÉRÉsÅ[ã÷é~
+	SocketConnector( const SocketConnector & );
+	SocketConnector & operator = ( const SocketConnector & );
+
 	SOCKET sock;
 	SOCKADDR_IN addr;
 

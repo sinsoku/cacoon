@@ -3,6 +3,13 @@
 #include "HttpClient.h"
 #include "HeaderMap.h"
 
+// 簡易接続のテスト
+TEST( HttpConnectionTest, EasyRequest )
+{
+	Response resp = HttpClient::Connect( Method::Get, "http://cacoo.com/" );
+	EXPECT_EQ( 200, resp.StatusCode() );
+}
+
 // 複数回のレスポンスのテスト
 TEST( HttpConnectionTest, MultiRequest )
 {

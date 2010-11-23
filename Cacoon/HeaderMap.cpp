@@ -62,6 +62,15 @@ bool HeaderMap::IsKeyExists( const std::string & key ) const
 	return (this->innerMap.find( key ) != this->innerMap.end());
 }
 
+// Python の dict.update メソッドに相当
+void HeaderMap::Update( const HeaderMap & headerMap )
+{
+	for( HeaderMap::const_iterator it = headerMap.Begin(); it != headerMap.End(); it++ )
+	{
+		(*this)[it->first] = it->second;
+	}
+}
+
 // map のラッピング: 要素の挿入
 void HeaderMap::Insert( const std::string & key, const std::string & value )
 {

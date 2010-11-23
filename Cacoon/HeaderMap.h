@@ -17,6 +17,9 @@ public:
 	// 指定したキーが存在するかどうか
 	bool IsKeyExists( const std::string & key ) const;
 
+	// Python の dict.update に相当
+	void Update( const HeaderMap & headerMap );
+
 	// 以下、map のラッピング
 	typedef std::map<std::string, std::string>::iterator iterator;
 	typedef std::map<std::string, std::string>::const_iterator const_iterator;

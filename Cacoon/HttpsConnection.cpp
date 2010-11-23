@@ -3,8 +3,8 @@
 #include "HeaderMap.h"
 
 HttpsConnection::HttpsConnection( const std::string & host )
-	: sock( host, 443 )
-	, host( host )
+	: ConnectionImpl( host )
+	, sock( host, 443 )
 {
 	SSL_load_error_strings();
 	SSL_library_init();
@@ -49,51 +49,7 @@ HttpsConnection::~HttpsConnection()
 	ERR_free_strings();
 }
 
-Response HttpsConnection::Request( const std::string & method, const std::string & url, const HeaderMap & header )
-{
-	HeaderMap hm( header );
-	if( !hm.IsKeyExists( "Host" ) )
-	{
-		hm.Insert( "Host", this->host );
-	}
-	if( !hm.IsKeyExists( "Connection" ) )
-	{
-		hm.Insert( "Connection", "close" );
-	}
-	std::ostringstream ossReq( std::ios::binary ); // \r\n を正しく処理するためバイナリとする。
-	ossReq << method << " " << url << " HTTP/1.1\r\n" << hm.ToString() << "\r\n" << '\0';
-
-	this->makeSslConnection();
-
-	int n = SSL_write( this->ssl, ossReq.str().c_str(), ossReq.str().length() );
-
-	std::ostringstream ossResult( std::ios::binary );
-	
-	const int BufferSize = 256;
-	char buf[BufferSize];
-
-	// サーバーからの受信
-	while( 1 )
-	{
-		int readSize = SSL_read( ssl, buf, BufferSize );
-		if( readSize > 0 )
-		{
-			ossResult.write( buf, readSize );
-		}
-		else if( readSize == 0 )
-		{
-			break;
-		}
-		else
-		{
-			ERR_print_errors_fp( stderr );
-			throw CACOON_EXCEPTION( "受信に失敗" );
-		}
-	}
-	return Response( ossResult.str() );
-}
-
-void HttpsConnection::makeSslConnection()
+void HttpsConnection::makeConnection()
 {
 	// ソケットの接続
 	this->sock.Connect();
@@ -113,4 +69,19 @@ void HttpsConnection::makeSslConnection()
 		ERR_print_errors_fp( stdout );
 		throw CACOON_EXCEPTION( "connect に失敗" );
 	}
+}
+
+void HttpsConnection::sendRequest( const std::string & request )
+{
+	int n = SSL_write( this->ssl, request.c_str(), request.length() );
+	if( n < 0 )
+	{
+		throw CACOON_EXCEPTION( "リクエストの送信に失敗" );
+	}
+}
+
+int HttpsConnection::receive( char * buf, int bufferSize )
+{
+	memset( buf, 0, bufferSize );
+	return SSL_read( this->ssl, buf, bufferSize );
 }

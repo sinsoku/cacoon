@@ -1,72 +1,50 @@
 #include "stdafx.h"
+#include "HeaderMap.h"
 #include "ConnectionImpl.h"
 
-// ソケットの作成
-SOCKET ConnectionImpl::MakeSocket()
+ConnectionImpl::ConnectionImpl( const std::string & host )
+	: HostName( host )
 {
-	SOCKET resultSocket = socket( AF_INET, SOCK_STREAM, 0 );
-
-	if( resultSocket == INVALID_SOCKET )
-	{
-		throw CACOON_EXCEPTION( "ソケット初期化エラー" );
-	}
-
-	return resultSocket;
 }
 
-// アドレスファミリーの作成
-SOCKADDR_IN ConnectionImpl::MakeAddressFamily( SOCKET sock, const std::string & hostname, int port )
+Response ConnectionImpl::Request( const std::string & method, const std::string & url, const HeaderMap & header )
 {
-	sockaddr_in server;
-	server.sin_family = AF_INET;
-	server.sin_port = htons( 80 );
-	server.sin_addr.S_un.S_addr = inet_addr( hostname.c_str() );
-	if( server.sin_addr.S_un.S_addr == 0xFFFFFFFF )
-	{	// host が文字列の場合
-		hostent * host = gethostbyname( hostname.c_str() );
-		if( host == NULL )
-		{
-			throw CACOON_EXCEPTION( "不明なホスト名" );
-		}
-
-		unsigned int ** addressList = (unsigned int **)host->h_addr_list;
-
-		while( *addressList != NULL )
-		{
-			server.sin_addr.S_un.S_addr = **addressList;
-
-			if( connect( sock, (sockaddr *)&server, sizeof( server ) ) == 0 )
-			{	// connect が成功したらループを抜ける
-				return server;
-			}
-			else
-			{	// 次のアドレスをさす
-				addressList++;
-			}
-		}
-		// connect がすべて失敗した場合
-		throw CACOON_EXCEPTION( "connect に失敗" );
+	HeaderMap hm( header );
+	if( !hm.IsKeyExists( "Host" ) )
+	{
+		hm.Insert( "Host", this->HostName );
 	}
-	else
-	{	// host が数字列の場合
-		if( connect( sock, (sockaddr *)&server, sizeof( server ) ) == 0 )
+	if( !hm.IsKeyExists( "Connection" ) )
+	{
+		hm.Insert( "Connection", "close" );
+	}
+	std::ostringstream ossReq( std::ios::binary ); // \r\n を正しく処理するためバイナリとする。
+	ossReq << method << " " << url << " HTTP/1.1\r\n" << hm.ToString() << "\r\n" << '\0';
+
+	this->makeConnection();
+	this->sendRequest( ossReq.str() );
+
+	std::ostringstream ossResult( std::ios::binary );
+
+	const int BufferSize = 256;
+	char buf[BufferSize];
+
+	// サーバから受信
+	while( 1 )
+	{
+		int readSize = this->receive( buf, BufferSize );
+		if( readSize > 0 )
 		{
-			return server;
+			ossResult.write( buf, readSize );
+		}
+		else if( readSize == 0 )
+		{
+			break;
 		}
 		else
 		{
-			throw CACOON_EXCEPTION( "connect に失敗" );
+			throw CACOON_EXCEPTION( "recv エラー" );
 		}
 	}
-}
-
-// 接続の確立
-void ConnectionImpl::Connect( SOCKET sock, SOCKADDR_IN addr  )
-{
-	int n = connect( sock, (sockaddr *)&addr, sizeof( addr ) );
-
-	if( n != 0 )
-	{
-		throw CACOON_EXCEPTION( "connect に失敗" );
-	}
+	return Response( ossResult.str() );
 }

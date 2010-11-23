@@ -2,56 +2,28 @@
 #include "HttpConnection.h"
 #include "HeaderMap.h"
 
-HttpConnection::HttpConnection( const std::string & hostname )
-	: sock( hostname, 80 )
-	, host( hostname )
+HttpConnection::HttpConnection( const std::string & host )
+	: ConnectionImpl( host )
+	, sock( host, 80 )
 {
 }
 
-
-HttpConnection::~HttpConnection()
+void HttpConnection::makeConnection()
 {
-}
-
-Response HttpConnection::Request( const std::string & method, const std::string & url, const HeaderMap & header )
-{
-	HeaderMap hm( header );
-	if( !hm.IsKeyExists( "Host" ) )
-	{
-		hm.Insert( "Host", this->host );
-	}
-	if( !header.IsKeyExists( "Connection" ) )
-	{
-		hm.Insert( "Connection", "close" );
-	}
-	std::ostringstream ossReq( std::ios::binary ); // \r\n を正しく処理するためバイナリとする。
-	ossReq << method << " " << url << " HTTP/1.1\r\n" << hm.ToString() << "\r\n" << '\0';
-
-	// コネクション確立
 	this->sock.Connect();
-	// HTTP リクエスト送信
-	int n = send( this->sock.Socket(), ossReq.str().c_str(), ossReq.str().length(), 0 );
+}
+
+void HttpConnection::sendRequest( const std::string & request )
+{
+	int n = send( this->sock.Socket(), request.c_str(), request.length(), 0 );
 	if( n < 0 )
 	{
 		throw CACOON_EXCEPTION( "send エラー" );
 	}
+}
 
-	std::ostringstream ossResult( std::ios::binary );
-
-	const int BufferSize = 256;
-	char buf[BufferSize];
-
-	// サーバからの HTTP メッセージ受信
-	while( n > 0 )
-	{
-		memset( buf, 0, BufferSize );
-		n = recv( this->sock.Socket(), buf, BufferSize, 0 );
-		if( n < 0 )
-		{
-			throw CACOON_EXCEPTION( "recv エラー" );
-		}
-		// 受信結果
-		ossResult.write( buf, n );
-	}
-	return Response( ossResult.str() );
+int HttpConnection::receive( char * buf, int bufferSize )
+{
+	memset( buf, 0, bufferSize );
+	return recv( this->sock.Socket(), buf, bufferSize, 0 );
 }

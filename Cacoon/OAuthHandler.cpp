@@ -14,15 +14,8 @@ OAuthHandler::~OAuthHandler()
 
 std::string OAuthHandler::get( const std::string & url )
 {
-	int prefixLength = url.find( "://" ) + 3;	// "https://" ‚Ì’·‚³
-	int rootLength = url.substr( prefixLength ).find( "/" );
-	std::string root = url.substr( prefixLength, rootLength );	// "https://(xxxx)/**" ‚Ì (xxxx) ‚ð’Šo
-	std::string endpoint = url.substr( prefixLength + rootLength );	// ã‚Ì (xxxx) ˆÈ~‚ð’Šo
-
-	Connection conn = HttpClient::CreateHttpsConnection( root );
-	
-	std::string authHeader = this->oauthUrlMaker.MakeAuthorizationHeader( "GET", url );
-	Response resp = conn.Request( "GET", endpoint, HeaderMap( authHeader ) );
+	std::string authHeader = this->oauthUrlMaker.MakeAuthorizationHeader( Method::Get, url );
+	Response resp = HttpClient::Connect( Method::Get, url, HeaderMap( authHeader ) );
 
 	if( resp.StatusCode() != 200 )
 	{

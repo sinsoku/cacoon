@@ -8,16 +8,16 @@ public:
 	explicit HttpsConnection( const std::string & host );
 	~HttpsConnection();
 
+protected:
 	// ConnectionImpl からのオーバーライド
-	Response Request( const std::string & method, const std::string & url, const HeaderMap & header );
+	void makeConnection();
+	void sendRequest( const std::string & request );
+	int receive( char * buf, int bufferSize );
 	
 private:
 	SocketConnector sock;
 	SSL_CTX * ctx;
 	SSL * ssl;
-	const std::string host;
 
-	// SSL コネクションの確立
-	void makeSslConnection();
 };
 

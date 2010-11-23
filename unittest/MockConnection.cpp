@@ -3,11 +3,7 @@
 
 
 MockConnection::MockConnection( const std::string & host )
-	: host( host )
-{
-}
-
-MockConnection::~MockConnection()
+	: ConnectionImpl( host )
 {
 }
 

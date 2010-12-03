@@ -6,6 +6,7 @@ TEST( HttpsConnectionTest, EasyRequest )
 {
 	Response resp = HttpClient::Connect( Method::Get, "https://cohama.backlog.jp/LoginDisplay.action;jsessionid=E3E47A1EE360473E09AAB64426083937.h" );
 	EXPECT_EQ( 200, resp.StatusCode() );
+	std::cout << resp.Body();
 }
 
 // HTTPS の複数回リクエスト

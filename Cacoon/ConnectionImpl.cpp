@@ -9,15 +9,11 @@ ConnectionImpl::ConnectionImpl( const std::string & host )
 
 Response ConnectionImpl::Request( const std::string & method, const std::string & url, const HeaderMap & header )
 {
-	HeaderMap hm( header );
-	if( !hm.IsKeyExists( "Host" ) )
-	{
-		hm.Insert( "Host", this->HostName );
-	}
-	if( !hm.IsKeyExists( "Connection" ) )
-	{
-		hm.Insert( "Connection", "close" );
-	}
+	HeaderMap hm;
+	hm["Host"] = this->HostName;
+	hm["Connection"] = "close";
+	hm.Update( header );
+
 	std::ostringstream ossReq( std::ios::binary ); // \r\n を正しく処理するためバイナリとする。
 	ossReq << method << " " << url << " HTTP/1.1\r\n" << hm.ToString() << "\r\n" << '\0';
 

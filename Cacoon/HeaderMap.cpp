@@ -19,6 +19,7 @@ HeaderMap::HeaderMap( const std::string & headerString )
 	
 	for( Tokenizer::iterator it = line.begin(); it != line.end(); it++ )
 	{
+		if( it->empty() ) continue;
 		Tokenizer element( *it, elementSep ); // : ‚Å‹æØ‚é
 		
 		Tokenizer::iterator elemIt = element.begin();
